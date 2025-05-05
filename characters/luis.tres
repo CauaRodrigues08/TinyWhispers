@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Character_stats" load_steps=3 format=3 uid="uid://da5ufpubkllcy"]
+
+[ext_resource type="Script" path="res://characters/character_stats.gd" id="1_gqt35"]
+[ext_resource type="Texture2D" uid="uid://1pccdvkugj37" path="res://icon.svg" id="2_arpi8"]
+
+[resource]
+script = ExtResource("1_gqt35")
+character_name = "Luis"
+health = 100
+max_health = 100
+texture = ExtResource("2_arpi8")
+actions = Array[Resource]([])

@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Character_stats" load_steps=6 format=3 uid="uid://b4hih70mdr7h7"]
+
+[ext_resource type="Script" path="res://characters/character_stats.gd" id="1_3vpye"]
+[ext_resource type="Script" path="res://actions/action.gd" id="1_w2v3l"]
+[ext_resource type="Texture2D" uid="uid://1pccdvkugj37" path="res://icon.svg" id="2_1dann"]
+[ext_resource type="Resource" uid="uid://6pqvyj15t5e5" path="res://actions/attacks/light_attack.tres" id="2_hpok7"]
+[ext_resource type="Resource" uid="uid://ll7ykt7ldhmi" path="res://actions/attacks/heavy_attack.tres" id="3_bby5v"]
+
+[resource]
+script = ExtResource("1_3vpye")
+character_name = "Levi"
+health = 100
+max_health = 100
+texture = ExtResource("2_1dann")
+actions = Array[ExtResource("1_w2v3l")]([ExtResource("2_hpok7"), ExtResource("3_bby5v")])
