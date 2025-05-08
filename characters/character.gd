@@ -29,3 +29,10 @@ func die():
 
 func act(_target):
 	print("% age!")
+	
+func heal(amount : int) -> void:
+	if !is_alive:
+		return
+	current_health = clamp(current_health + amount, 0, max_health)
+	print("%s cura %s de vida!" % [stats.character_name, amount])
+	

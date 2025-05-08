@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="Character_stats" load_steps=3 format=3 uid="uid://xbp2g4r138v8"]
+[gd_resource type="Resource" script_class="Character_stats" load_steps=5 format=3 uid="uid://xbp2g4r138v8"]
 
+[ext_resource type="Script" path="res://actions/action.gd" id="1_c4y3a"]
 [ext_resource type="Script" path="res://characters/character_stats.gd" id="1_dxwng"]
-[ext_resource type="Texture2D" uid="uid://1pccdvkugj37" path="res://icon.svg" id="2_iedg5"]
+[ext_resource type="Resource" uid="uid://d32e61me14wbk" path="res://actions/buffs/heal.tres" id="2_g7h86"]
+[ext_resource type="Texture2D" uid="uid://cwybgjtf6t5jr" path="res://images/sophia.png" id="4_xk47y"]
 
 [resource]
 script = ExtResource("1_dxwng")
 character_name = "Sofia"
 health = 100
 max_health = 100
-texture = ExtResource("2_iedg5")
-actions = Array[Resource]([])
+texture = ExtResource("4_xk47y")
+actions = Array[ExtResource("1_c4y3a")]([ExtResource("2_g7h86"), null])
