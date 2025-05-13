@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://bub5ym3ct2oil"]
+
+[ext_resource type="Script" path="res://scenes/game_manager.gd" id="1_ep4m1"]
+[ext_resource type="PackedScene" uid="uid://ca8ecj4dtt7ov" path="res://characters/character.tscn" id="2_s8v6o"]
+[ext_resource type="Resource" uid="uid://b4hih70mdr7h7" path="res://characters/levi.tres" id="3_e3j5y"]
+[ext_resource type="Resource" uid="uid://da5ufpubkllcy" path="res://characters/luis.tres" id="4_5tivu"]
+[ext_resource type="Resource" uid="uid://xbp2g4r138v8" path="res://characters/sofia.tres" id="5_k2tup"]
+[ext_resource type="Resource" uid="uid://snkakqtbkrfu" path="res://characters/pedro.tres" id="6_ryinf"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ep4m1")
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="Levi" parent="Characters" instance=ExtResource("2_s8v6o")]
+position = Vector2(360, 440)
+scale = Vector2(0.35, 0.35)
+stats = ExtResource("3_e3j5y")
+
+[node name="Luis" parent="Characters" instance=ExtResource("2_s8v6o")]
+position = Vector2(100, 440)
+scale = Vector2(0.35, 0.35)
+stats = ExtResource("4_5tivu")
+
+[node name="Sofia" parent="Characters" instance=ExtResource("2_s8v6o")]
+position = Vector2(220, 440)
+scale = Vector2(0.35, 0.35)
+stats = ExtResource("5_k2tup")
+
+[node name="Pedro" parent="Characters" instance=ExtResource("2_s8v6o")]
+position = Vector2(500, 440)
+scale = Vector2(0.35, 0.35)
+stats = ExtResource("6_ryinf")
