@@ -6,7 +6,7 @@ class_name Character
 	set(value):
 		stats = value
 		if value:
-			$Sprite2D.texture = value.texture
+			$Sprite.texture = value.texture
 
 var current_health : int
 var max_health : int
@@ -18,7 +18,7 @@ var is_alive : bool = true
 func _ready() -> void:
 	current_health = stats.health
 	max_health = stats.max_health
-	$Sprite2D.texture = stats.texture
+	$Sprite.texture = stats.texture
 	
 func begin_turn():
 	target_scale = 0.45

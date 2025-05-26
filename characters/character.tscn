@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://ca8ecj4dtt7ov"]
+[gd_scene load_steps=3 format=3 uid="uid://ca8ecj4dtt7ov"]
 
 [ext_resource type="Script" path="res://characters/character.gd" id="1_wx80t"]
+[ext_resource type="Texture2D" uid="uid://4yn6e1mc2sud" path="res://images/focus.png" id="2_5xx10"]
 
 [node name="Character" type="Node2D"]
 script = ExtResource("1_wx80t")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
+
+[node name="Focus" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -550)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_5xx10")

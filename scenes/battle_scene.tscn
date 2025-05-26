@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c08k2gp8oit48"]
+
+[ext_resource type="PackedScene" uid="uid://bcxghbbu6ybxs" path="res://scenes/player_group.tscn" id="1_lq5a5"]
+[ext_resource type="PackedScene" uid="uid://cuvpq3y7pgksm" path="res://scenes/enemy_group.tscn" id="2_32c3h"]
+
+[node name="Battle_Scene" type="Node2D"]
+
+[node name="PlayerGroup" parent="." instance=ExtResource("1_lq5a5")]
+position = Vector2(100, 450)
+
+[node name="Enemy_Group" parent="." instance=ExtResource("2_32c3h")]
+position = Vector2(700, 450)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Choice" type="HBoxContainer" parent="UI"]
+offset_right = 40.0
+offset_bottom = 40.0

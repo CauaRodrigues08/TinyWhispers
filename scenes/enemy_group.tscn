@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuvpq3y7pgksm"]
+
+[ext_resource type="Script" path="res://scenes/enemy_group.gd" id="1_6v8xx"]
+[ext_resource type="PackedScene" uid="uid://ca8ecj4dtt7ov" path="res://characters/character.tscn" id="2_lab4y"]
+[ext_resource type="Resource" uid="uid://ljm6j7u5f2a7" path="res://characters/enemies/test_enemy.tres" id="3_oi4d7"]
+[ext_resource type="Texture2D" uid="uid://1pccdvkugj37" path="res://icon.svg" id="4_e44ny"]
+
+[node name="Enemy_Group" type="Node2D"]
+script = ExtResource("1_6v8xx")
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="Godot_logo" parent="Characters" instance=ExtResource("2_lab4y")]
+stats = ExtResource("3_oi4d7")
+
+[node name="Sprite" parent="Characters/Godot_logo" index="0"]
+texture = ExtResource("4_e44ny")
+
+[node name="Focus" parent="Characters/Godot_logo" index="1"]
+visible = false
+position = Vector2(0, -165)
+scale = Vector2(0.15, 0.15)
+
+[editable path="Characters/Godot_logo"]
