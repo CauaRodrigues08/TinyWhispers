@@ -17,7 +17,6 @@ stats = ExtResource("3_oi4d7")
 texture = ExtResource("4_e44ny")
 
 [node name="Focus" parent="Characters/Godot_logo" index="1"]
-visible = false
 position = Vector2(0, -165)
 scale = Vector2(0.15, 0.15)
 

@@ -8,6 +8,8 @@ class_name Character
 		if value:
 			$Sprite.texture = value.texture
 
+@onready var _focus = $Focus
+
 var current_health : int
 var max_health : int
 
@@ -49,3 +51,8 @@ func heal(amount : int) -> void:
 	current_health = clamp(current_health + amount, 0, max_health)
 	print("%s cura %s de vida!" % [stats.character_name, amount])
 	
+func focus():
+	_focus.show()
+
+func unfocus():
+	_focus.hide()
