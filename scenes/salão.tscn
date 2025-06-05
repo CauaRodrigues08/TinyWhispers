@@ -59,3 +59,5 @@ icon = ExtResource("2_1nuwv")
 script = ExtResource("5_n7ojm")
 
 [connection signal="pressed" from="Control/Sala_PirataE" to="Control/Sala_PirataE" method="_on_pressed"]
+[connection signal="pressed" from="Control/Sala_SackManD" to="Control/Sala_SackManD" method="_on_pressed"]
+[connection signal="pressed" from="Control/Sala_PalhaçoB" to="Control/Sala_PalhaçoB" method="_on_pressed"]

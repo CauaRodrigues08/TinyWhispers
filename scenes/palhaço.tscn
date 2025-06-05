@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://cj6vxxgwdstqu"]
+
+[ext_resource type="Texture2D" uid="uid://duv0eso5c5e7u" path="res://images/724954_resized.png" id="1_8bvav"]
+[ext_resource type="Script" uid="uid://bhv442vt6u43f" path="res://scenes/palhaço.gd" id="2_6qmru"]
+[ext_resource type="Texture2D" uid="uid://b2s5eidpqoref" path="res://images/Clown.png" id="3_8bvav"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8bvav"]
+radius = 75.0067
+
+[node name="palhaço" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 721.0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 443.0
+offset_top = 191.0
+offset_right = 626.0
+offset_bottom = 581.0
+rotation = -1.5708
+icon = ExtResource("1_8bvav")
+script = ExtResource("2_6qmru")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(643, 622)
+scale = Vector2(1, 1)
+shape = SubResource("CircleShape2D_8bvav")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(632, 522)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_8bvav")
+
+[connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_pressed"]

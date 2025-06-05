@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ei3uawr1iofh"]
+[gd_scene load_steps=4 format=3 uid="uid://ei3uawr1iofh"]
 
-[ext_resource type="Texture2D" uid="uid://bq2bivjex71gg" path="res://images/Sem título.png" id="1_spacd"]
 [ext_resource type="Script" uid="uid://dk0jjdtbkcl1m" path="res://scenes/button.gd" id="2_guqla"]
+[ext_resource type="Texture2D" uid="uid://duv0eso5c5e7u" path="res://images/724954_resized.png" id="2_lsfxw"]
+[ext_resource type="Texture2D" uid="uid://dvu4gscdi4uem" path="res://images/pirate.png" id="3_34ea7"]
 
 [node name="Pirata" type="Node2D"]
 
@@ -13,11 +14,21 @@ offset_bottom = 721.0
 
 [node name="Button" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 388.0
-offset_top = 249.0
-offset_right = 881.0
-offset_bottom = 463.0
-icon = ExtResource("1_spacd")
+offset_left = 1123.0
+offset_top = 207.0
+offset_right = 1244.0
+offset_bottom = 496.0
 script = ExtResource("2_guqla")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Button"]
+position = Vector2(61, 149)
+scale = Vector2(0.692, 1)
+texture = ExtResource("2_lsfxw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(217, 306)
+rotation = 3.14159
+scale = Vector2(0.5, -0.5)
+texture = ExtResource("3_34ea7")
 
 [connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_pressed"]
