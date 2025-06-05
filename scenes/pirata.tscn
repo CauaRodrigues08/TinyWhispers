@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://ei3uawr1iofh"]
+
+[ext_resource type="Texture2D" uid="uid://bq2bivjex71gg" path="res://images/Sem título.png" id="1_spacd"]
+[ext_resource type="Script" uid="uid://dk0jjdtbkcl1m" path="res://scenes/button.gd" id="2_guqla"]
+
+[node name="Pirata" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1276.0
+offset_bottom = 721.0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 388.0
+offset_top = 249.0
+offset_right = 881.0
+offset_bottom = 463.0
+icon = ExtResource("1_spacd")
+script = ExtResource("2_guqla")
+
+[connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_pressed"]

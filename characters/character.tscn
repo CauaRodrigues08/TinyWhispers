@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ca8ecj4dtt7ov"]
 
-[ext_resource type="Script" path="res://characters/character.gd" id="1_wx80t"]
+[ext_resource type="Script" uid="uid://cwpn0v52rqajn" path="res://characters/character.gd" id="1_wx80t"]
 [ext_resource type="Texture2D" uid="uid://4yn6e1mc2sud" path="res://images/focus.png" id="2_5xx10"]
 
 [node name="Character" type="Node2D"]

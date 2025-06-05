@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bcxghbbu6ybxs"]
 
 [ext_resource type="PackedScene" uid="uid://ca8ecj4dtt7ov" path="res://characters/character.tscn" id="1_3581w"]
-[ext_resource type="Script" path="res://scenes/player_group.gd" id="1_uo00q"]
+[ext_resource type="Script" uid="uid://8d2tohsf25a7" path="res://scenes/player_group.gd" id="1_uo00q"]
 [ext_resource type="Resource" uid="uid://b4hih70mdr7h7" path="res://characters/player/levi.tres" id="2_tdtiy"]
 [ext_resource type="Resource" uid="uid://da5ufpubkllcy" path="res://characters/player/luis.tres" id="3_km5cl"]
 [ext_resource type="Resource" uid="uid://xbp2g4r138v8" path="res://characters/player/sofia.tres" id="4_gux8x"]

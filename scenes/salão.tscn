@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://wqkhahbgbyai"]
+
+[ext_resource type="Texture2D" uid="uid://bq5kyiapaul8h" path="res://images/salaoTiny.png" id="1_ax71t"]
+[ext_resource type="Texture2D" uid="uid://duv0eso5c5e7u" path="res://images/724954_resized.png" id="2_1nuwv"]
+[ext_resource type="Script" uid="uid://w2u0358u11yb" path="res://scenes/sala_pirata.gd" id="2_vl77g"]
+[ext_resource type="Script" uid="uid://can66iiustl17" path="res://scenes/sala_sack_man.gd" id="4_elxrc"]
+[ext_resource type="Script" uid="uid://bhd8on1ytt1wa" path="res://scenes/sala_palhaço.gd" id="5_n7ojm"]
+
+[node name="Salão" type="Node2D"]
+
+[node name="salão" type="Sprite2D" parent="."]
+position = Vector2(639.5, 360)
+scale = Vector2(0.854, 0.718)
+texture = ExtResource("1_ax71t")
+metadata/_edit_lock_ = true
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+metadata/_edit_lock_ = true
+
+[node name="Sala_PirataE" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 230.0
+offset_right = 140.0
+offset_bottom = 519.0
+script = ExtResource("2_vl77g")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Sala_PirataE"]
+position = Vector2(61.1472, 144)
+rotation = 3.14159
+scale = Vector2(0.692024, 1)
+texture = ExtResource("2_1nuwv")
+
+[node name="Sala_SackManD" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1130.0
+offset_top = 230.0
+offset_right = 1251.0
+offset_bottom = 519.0
+script = ExtResource("4_elxrc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Sala_SackManD"]
+position = Vector2(60.5, 142)
+scale = Vector2(0.691428, 1)
+texture = ExtResource("2_1nuwv")
+
+[node name="Sala_PalhaçoB" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 799.0
+offset_top = 528.0
+offset_right = 982.0
+offset_bottom = 848.0
+rotation = 1.5708
+icon = ExtResource("2_1nuwv")
+script = ExtResource("5_n7ojm")
+
+[connection signal="pressed" from="Control/Sala_PirataE" to="Control/Sala_PirataE" method="_on_pressed"]
