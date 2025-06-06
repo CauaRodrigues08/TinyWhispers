@@ -1,6 +1,5 @@
 extends Button
 
-
 func _on_pressed():
 	Transição.transition()
 	await Transição.on_transition_finished
