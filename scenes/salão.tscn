@@ -1,12 +1,31 @@
-[gd_scene load_steps=8 format=3 uid="uid://wqkhahbgbyai"]
+[gd_scene load_steps=27 format=3 uid="uid://wqkhahbgbyai"]
 
 [ext_resource type="Texture2D" uid="uid://bq5kyiapaul8h" path="res://images/salaoTiny.png" id="1_ax71t"]
 [ext_resource type="Texture2D" uid="uid://duv0eso5c5e7u" path="res://images/724954_resized.png" id="2_1nuwv"]
+[ext_resource type="Script" uid="uid://viei65cpl4ha" path="res://scenes/descricoes.gd" id="2_v3l2x"]
 [ext_resource type="Script" uid="uid://w2u0358u11yb" path="res://scenes/sala_pirata.gd" id="2_vl77g"]
 [ext_resource type="Script" uid="uid://can66iiustl17" path="res://scenes/sala_sack_man.gd" id="4_elxrc"]
 [ext_resource type="Script" uid="uid://bhd8on1ytt1wa" path="res://scenes/sala_palhaço.gd" id="5_n7ojm"]
 [ext_resource type="Script" uid="uid://coeafvmu1cqny" path="res://scenes/bola.gd" id="6_elxrc"]
+[ext_resource type="Script" uid="uid://bwsgbveseqms8" path="res://scenes/letrinhas_texto.gd" id="6_l8v38"]
+[ext_resource type="Script" uid="uid://cok4ap562pu3i" path="res://scenes/letrinhas.gd" id="7_44tr4"]
 [ext_resource type="Script" uid="uid://cwmf5j07ur62o" path="res://scenes/label.gd" id="7_n7ojm"]
+[ext_resource type="Script" uid="uid://tcy6nau03jww" path="res://scenes/bumerangue_texto.gd" id="8_g0v53"]
+[ext_resource type="Script" uid="uid://3cg6gr6ucx22" path="res://scenes/bumerangue.gd" id="9_372yp"]
+[ext_resource type="Script" uid="uid://cy31e5trbic2h" path="res://scenes/avião_texto.gd" id="12_i0fjl"]
+[ext_resource type="Script" uid="uid://evy8si1y4uao" path="res://scenes/avião.gd" id="13_s4fgf"]
+[ext_resource type="Script" uid="uid://cpftoqggw3fmh" path="res://scenes/ursinho.gd" id="14_hwri7"]
+[ext_resource type="Script" uid="uid://b1564wvb7odj6" path="res://scenes/ursinho_texto.gd" id="15_ur6pv"]
+[ext_resource type="Script" uid="uid://bj40dm12vpkhu" path="res://scenes/blocos.gd" id="16_oal66"]
+[ext_resource type="Script" uid="uid://dsj4tnefdfdjg" path="res://scenes/blocos_texto.gd" id="17_gfwp1"]
+[ext_resource type="Script" uid="uid://ipyc16jidx4d" path="res://scenes/livro_1.gd" id="18_vopkj"]
+[ext_resource type="Script" uid="uid://16hkm1apkqdu" path="res://scenes/livros_texto.gd" id="19_5k11g"]
+[ext_resource type="Script" uid="uid://dmbra3bymrc4f" path="res://scenes/livro_2.gd" id="20_ofuib"]
+[ext_resource type="Script" uid="uid://c1jthh2bvbuev" path="res://scenes/livro_3.gd" id="21_vhh6q"]
+[ext_resource type="Script" uid="uid://clpr1nw4iiyk7" path="res://scenes/desenho_1.gd" id="22_8l2dd"]
+[ext_resource type="Script" uid="uid://brjxmmkwd5n1f" path="res://scenes/desenhos_texto.gd" id="23_v3l2x"]
+[ext_resource type="Script" uid="uid://c6hv50llxpacl" path="res://scenes/desenho_2.gd" id="24_65ack"]
+[ext_resource type="Script" uid="uid://dy6h7yn2vcc5t" path="res://scenes/desenho_3.gd" id="25_cpgp5"]
 
 [node name="Salão" type="Node2D"]
 
@@ -16,14 +35,15 @@ scale = Vector2(0.854, 0.718)
 texture = ExtResource("1_ax71t")
 metadata/_edit_lock_ = true
 
-[node name="botões_bosses" type="Control" parent="."]
+[node name="botões" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
+script = ExtResource("2_v3l2x")
 metadata/_edit_lock_ = true
 
-[node name="Sala_PirataE" type="Button" parent="botões_bosses"]
+[node name="Sala_PirataE" type="Button" parent="botões"]
 layout_mode = 0
 offset_left = 19.0
 offset_top = 230.0
@@ -31,13 +51,13 @@ offset_right = 140.0
 offset_bottom = 519.0
 script = ExtResource("2_vl77g")
 
-[node name="Sprite2D" type="Sprite2D" parent="botões_bosses/Sala_PirataE"]
+[node name="Sprite2D" type="Sprite2D" parent="botões/Sala_PirataE"]
 position = Vector2(61.1472, 144)
 rotation = 3.14159
 scale = Vector2(0.692024, 1)
 texture = ExtResource("2_1nuwv")
 
-[node name="Sala_SackManD" type="Button" parent="botões_bosses"]
+[node name="Sala_SackManD" type="Button" parent="botões"]
 layout_mode = 0
 offset_left = 1130.0
 offset_top = 230.0
@@ -45,40 +65,202 @@ offset_right = 1251.0
 offset_bottom = 519.0
 script = ExtResource("4_elxrc")
 
-[node name="Sprite2D" type="Sprite2D" parent="botões_bosses/Sala_SackManD"]
+[node name="Sprite2D" type="Sprite2D" parent="botões/Sala_SackManD"]
 position = Vector2(60.5, 142)
 scale = Vector2(0.691428, 1)
 texture = ExtResource("2_1nuwv")
 
-[node name="Sala_PalhaçoB" type="Button" parent="botões_bosses"]
+[node name="Sala_PalhaçoB" type="Button" parent="botões"]
 layout_mode = 0
-offset_left = 799.0
-offset_top = 528.0
-offset_right = 982.0
-offset_bottom = 848.0
+offset_left = 765.0
+offset_top = 570.0
+offset_right = 948.0
+offset_bottom = 890.0
 rotation = 1.5708
+scale = Vector2(0.75, 0.75)
 icon = ExtResource("2_1nuwv")
 script = ExtResource("5_n7ojm")
 
-[node name="Node2D" type="Node2D" parent="botões_bosses"]
+[node name="Letrinhas" type="Node2D" parent="botões"]
 
-[node name="Bola" type="Button" parent="botões_bosses/Node2D"]
-modulate = Color(1, 1, 1, 0.403922)
+[node name="Letrinhas_texto" type="Label" parent="botões/Letrinhas"]
+offset_left = 242.0
+offset_top = 11.0
+offset_right = 505.0
+offset_bottom = 34.0
+scale = Vector2(3, 3)
+script = ExtResource("6_l8v38")
+
+[node name="Letrinhas" type="Button" parent="botões/Letrinhas"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 204.0
+offset_top = 520.0
+offset_right = 344.0
+offset_bottom = 611.0
+script = ExtResource("7_44tr4")
+
+[node name="Bumerangue" type="Node2D" parent="botões"]
+
+[node name="Bumerangue" type="Button" parent="botões/Bumerangue"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 727.0
+offset_top = 415.0
+offset_right = 802.0
+offset_bottom = 446.0
+script = ExtResource("9_372yp")
+
+[node name="Bumerangue_texto" type="Label" parent="botões/Bumerangue"]
+offset_left = 188.0
+offset_top = 10.0
+offset_right = 490.0
+offset_bottom = 33.0
+scale = Vector2(3, 3)
+script = ExtResource("8_g0v53")
+
+[node name="Bola" type="Node2D" parent="botões"]
+
+[node name="Bola_texto" type="Label" parent="botões/Bola"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 531.0
+offset_top = 14.0
+offset_right = 589.0
+offset_bottom = 37.0
+grow_horizontal = 2
+scale = Vector2(3, 3)
+script = ExtResource("7_n7ojm")
+
+[node name="Bola" type="Button" parent="botões/Bola"]
+modulate = Color(1, 1, 1, 0)
 offset_left = 976.0
 offset_top = 394.0
 offset_right = 1038.0
 offset_bottom = 447.0
 script = ExtResource("6_elxrc")
 
-[node name="Label" type="Label" parent="botões_bosses/Node2D/Bola"]
-layout_mode = 0
-offset_left = -12.0
-offset_top = -20.0
-offset_right = 60.0
-offset_bottom = 3.0
-script = ExtResource("7_n7ojm")
+[node name="Ursinho" type="Node2D" parent="botões"]
 
-[connection signal="pressed" from="botões_bosses/Sala_PirataE" to="botões_bosses/Sala_PirataE" method="_on_pressed"]
-[connection signal="pressed" from="botões_bosses/Sala_SackManD" to="botões_bosses/Sala_SackManD" method="_on_pressed"]
-[connection signal="pressed" from="botões_bosses/Sala_PalhaçoB" to="botões_bosses/Sala_PalhaçoB" method="_on_pressed"]
-[connection signal="pressed" from="botões_bosses/Node2D/Bola" to="botões_bosses/Node2D/Bola" method="_on_pressed"]
+[node name="Ursinho" type="Button" parent="botões/Ursinho"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 595.0
+offset_top = 402.0
+offset_right = 732.0
+offset_bottom = 517.0
+script = ExtResource("14_hwri7")
+
+[node name="Ursinho_texto" type="Label" parent="botões/Ursinho"]
+offset_left = 44.0
+offset_top = -4.0
+offset_right = 433.0
+offset_bottom = 19.0
+scale = Vector2(3, 3)
+script = ExtResource("15_ur6pv")
+
+[node name="blocos" type="Node2D" parent="botões"]
+
+[node name="blocos" type="Button" parent="botões/blocos"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 725.0
+offset_top = 333.0
+offset_right = 794.0
+offset_bottom = 382.0
+script = ExtResource("16_oal66")
+
+[node name="blocos_texto" type="Label" parent="botões/blocos"]
+offset_left = 278.0
+offset_top = 14.0
+offset_right = 527.0
+offset_bottom = 37.0
+scale = Vector2(3, 3)
+script = ExtResource("17_gfwp1")
+
+[node name="livros" type="Node2D" parent="botões"]
+
+[node name="Livros_texto" type="Label" parent="botões/livros"]
+offset_left = 301.0
+offset_top = 12.0
+offset_right = 524.0
+offset_bottom = 35.0
+scale = Vector2(3, 3)
+script = ExtResource("19_5k11g")
+
+[node name="Livro1" type="Button" parent="botões/livros"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 1006.0
+offset_top = 452.0
+offset_right = 1068.0
+offset_bottom = 509.0
+script = ExtResource("18_vopkj")
+
+[node name="Livro2" type="Button" parent="botões/livros"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 913.0
+offset_top = 475.0
+offset_right = 994.0
+offset_bottom = 505.0
+script = ExtResource("20_ofuib")
+
+[node name="Livro3" type="Button" parent="botões/livros"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 841.0
+offset_top = 457.0
+offset_right = 888.0
+offset_bottom = 504.0
+script = ExtResource("21_vhh6q")
+
+[node name="desenhos" type="Node2D" parent="botões"]
+
+[node name="desenho1" type="Button" parent="botões/desenhos"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 423.0
+offset_top = 193.0
+offset_right = 517.0
+offset_bottom = 294.0
+script = ExtResource("22_8l2dd")
+
+[node name="desenhos_texto" type="Label" parent="botões/desenhos"]
+offset_left = 185.0
+offset_top = 15.0
+offset_right = 477.0
+offset_bottom = 42.0
+scale = Vector2(3, 3)
+script = ExtResource("23_v3l2x")
+
+[node name="desenho2" type="Button" parent="botões/desenhos"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 621.0
+offset_top = 186.0
+offset_right = 716.0
+offset_bottom = 279.0
+script = ExtResource("24_65ack")
+
+[node name="desenho3" type="Button" parent="botões/desenhos"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 618.0
+offset_top = 308.0
+offset_right = 715.0
+offset_bottom = 391.0
+script = ExtResource("25_cpgp5")
+
+[node name="avião" type="Node2D" parent="botões"]
+
+[node name="avião_texto" type="Label" parent="botões/avião"]
+offset_left = 158.0
+offset_top = -17.0
+offset_right = 386.0
+offset_bottom = 18.0
+scale = Vector2(3, 3)
+script = ExtResource("12_i0fjl")
+
+[node name="avião" type="Button" parent="botões/avião"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 593.0
+offset_top = 366.0
+offset_right = 669.0
+offset_bottom = 402.0
+script = ExtResource("13_s4fgf")
+
+[connection signal="pressed" from="botões/Sala_PirataE" to="botões/Sala_PirataE" method="_on_pressed"]
+[connection signal="pressed" from="botões/Sala_SackManD" to="botões/Sala_SackManD" method="_on_pressed"]
+[connection signal="pressed" from="botões/Sala_PalhaçoB" to="botões/Sala_PalhaçoB" method="_on_pressed"]

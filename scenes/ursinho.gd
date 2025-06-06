@@ -1,6 +1,6 @@
 extends Button
 
-@onready var label = $"../Bola_texto"
+@onready var label = $"../Ursinho_texto"
 
 func _ready():
 	label.visible = false
