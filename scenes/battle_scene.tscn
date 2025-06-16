@@ -27,20 +27,20 @@ grow_vertical = 0
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="Actions" type="Button" parent="UI/HBoxContainer"]
+[node name="ActionsButton" type="Button" parent="UI/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Ações
 "
 
-[node name="Items" type="Button" parent="UI/HBoxContainer"]
+[node name="ItemsButton" type="Button" parent="UI/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Itens
 "
 
-[node name="Run" type="Button" parent="UI/HBoxContainer"]
+[node name="SwitchButton" type="Button" parent="UI/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Fugir
+text = "Trocar posição
 "

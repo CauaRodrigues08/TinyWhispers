@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://bub5ym3ct2oil"]
 
 [ext_resource type="Script" uid="uid://57j3n8863sqy" path="res://scenes/game_manager.gd" id="1_ep4m1"]
-[ext_resource type="PackedScene" uid="uid://c08k2gp8oit48" path="res://scenes/battle_scene.tscn" id="2_4gcxv"]
+[ext_resource type="PackedScene" uid="uid://wqkhahbgbyai" path="res://scenes/salão.tscn" id="2_0wfyh"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ep4m1")
 
-[node name="Battle_Scene" parent="." instance=ExtResource("2_4gcxv")]
+[node name="Salão" parent="." instance=ExtResource("2_0wfyh")]
