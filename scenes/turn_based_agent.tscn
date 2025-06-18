@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://6qqg7rrqki46"]
+
+[ext_resource type="Texture2D" uid="uid://d0x0lyd2tk7q1" path="res://images/Icon_down.svg" id="1_tuowk"]
+[ext_resource type="Texture2D" uid="uid://fbiwpkh21w2i" path="res://images/Icon_left.svg" id="2_yy7as"]
+
+[node name="TurnBasedAgent" type="Node"]
+
+[node name="onTurnIcon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(25, 25)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_tuowk")
+expand_mode = 1
+
+[node name="targetIcon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(25, 25)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_yy7as")
+expand_mode = 1

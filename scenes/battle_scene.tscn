@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c08k2gp8oit48"]
+[gd_scene load_steps=6 format=3 uid="uid://c08k2gp8oit48"]
 
 [ext_resource type="PackedScene" uid="uid://bcxghbbu6ybxs" path="res://scenes/player_group.tscn" id="1_lq5a5"]
 [ext_resource type="PackedScene" uid="uid://cuvpq3y7pgksm" path="res://scenes/enemy_group.tscn" id="2_32c3h"]
+[ext_resource type="Script" uid="uid://dwy4tcpbvwpjp" path="res://scenes/ui_batalha.gd" id="3_rca61"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kinr6"]
+bg_color = Color(0.537255, 0.0470588, 0.109804, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rca61"]
+bg_color = Color(0.537255, 0.0470588, 0.109804, 0.882353)
 
 [node name="Battle_Scene" type="Node2D"]
 
@@ -11,9 +18,10 @@ position = Vector2(100, 350)
 [node name="Enemy_Group" parent="." instance=ExtResource("2_32c3h")]
 position = Vector2(700, 350)
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI_Batalha" type="CanvasLayer" parent="."]
+script = ExtResource("3_rca61")
 
-[node name="ColorRect" type="ColorRect" parent="UI"]
+[node name="ColorRect" type="ColorRect" parent="UI_Batalha"]
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -23,22 +31,23 @@ offset_top = -210.0
 offset_right = -1.0
 grow_horizontal = 2
 grow_vertical = 0
+color = Color(0.713726, 0.713726, 0.713726, 0.647059)
 
-[node name="lifebar_Pedro" type="TextureProgressBar" parent="UI/ColorRect"]
+[node name="lifebar_Pedro" type="TextureProgressBar" parent="UI_Batalha/ColorRect"]
 layout_mode = 0
 offset_left = 35.0
 offset_top = 24.0
 offset_right = 336.0
 offset_bottom = 49.0
 
-[node name="Label" type="Label" parent="UI/ColorRect/lifebar_Pedro"]
+[node name="Label" type="Label" parent="UI_Batalha/ColorRect/lifebar_Pedro"]
 layout_mode = 2
 offset_right = 301.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Pedro"
 
-[node name="Label2" type="Label" parent="UI/ColorRect/lifebar_Pedro"]
+[node name="Label2" type="Label" parent="UI_Batalha/ColorRect/lifebar_Pedro"]
 layout_mode = 2
 offset_right = 301.0
 offset_bottom = 23.0
@@ -46,21 +55,21 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "100/100"
 horizontal_alignment = 2
 
-[node name="lifebar_Levi" type="TextureProgressBar" parent="UI/ColorRect"]
+[node name="lifebar_Levi" type="TextureProgressBar" parent="UI_Batalha/ColorRect"]
 layout_mode = 0
 offset_left = 35.0
 offset_top = 64.0
 offset_right = 336.0
 offset_bottom = 89.0
 
-[node name="Label" type="Label" parent="UI/ColorRect/lifebar_Levi"]
+[node name="Label" type="Label" parent="UI_Batalha/ColorRect/lifebar_Levi"]
 layout_mode = 2
 offset_right = 301.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Levi"
 
-[node name="Label2" type="Label" parent="UI/ColorRect/lifebar_Levi"]
+[node name="Label2" type="Label" parent="UI_Batalha/ColorRect/lifebar_Levi"]
 layout_mode = 2
 offset_right = 301.0
 offset_bottom = 23.0
@@ -68,21 +77,21 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "100/100"
 horizontal_alignment = 2
 
-[node name="lifebar_Sofia" type="TextureProgressBar" parent="UI/ColorRect"]
+[node name="lifebar_Sofia" type="TextureProgressBar" parent="UI_Batalha/ColorRect"]
 layout_mode = 0
 offset_left = 35.0
 offset_top = 104.0
 offset_right = 336.0
 offset_bottom = 129.0
 
-[node name="Label" type="Label" parent="UI/ColorRect/lifebar_Sofia"]
+[node name="Label" type="Label" parent="UI_Batalha/ColorRect/lifebar_Sofia"]
 layout_mode = 2
 offset_right = 301.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Sofia"
 
-[node name="Label2" type="Label" parent="UI/ColorRect/lifebar_Sofia"]
+[node name="Label2" type="Label" parent="UI_Batalha/ColorRect/lifebar_Sofia"]
 layout_mode = 2
 offset_right = 301.0
 offset_bottom = 23.0
@@ -90,58 +99,113 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "100/100"
 horizontal_alignment = 2
 
-[node name="lifebar_Lucas" type="MarginContainer" parent="UI/ColorRect"]
+[node name="lifebar_Lucas" type="MarginContainer" parent="UI_Batalha/ColorRect"]
 layout_mode = 0
 offset_left = 35.0
 offset_top = 144.0
 offset_right = 336.0
 offset_bottom = 169.0
 
-[node name="Label" type="Label" parent="UI/ColorRect/lifebar_Lucas"]
+[node name="Label" type="Label" parent="UI_Batalha/ColorRect/lifebar_Lucas"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Lucas"
 
-[node name="Label2" type="Label" parent="UI/ColorRect/lifebar_Lucas"]
+[node name="Label2" type="Label" parent="UI_Batalha/ColorRect/lifebar_Lucas"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "100/100"
 horizontal_alignment = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/ColorRect"]
+[node name="BotõesBatalha" type="VBoxContainer" parent="UI_Batalha/ColorRect"]
+unique_name_in_owner = true
 layout_mode = 0
-offset_left = 498.0
-offset_top = 38.0
-offset_right = 793.0
-offset_bottom = 171.0
+offset_left = 484.0
+offset_top = 27.0
+offset_right = 779.0
+offset_bottom = 189.0
 theme_override_constants/separation = 20
 
-[node name="Button" type="Button" parent="UI/ColorRect/VBoxContainer"]
+[node name="AçõesButton" type="Button" parent="UI_Batalha/ColorRect/BotõesBatalha"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_kinr6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rca61")
 text = "Ações"
 
-[node name="Button2" type="Button" parent="UI/ColorRect/VBoxContainer"]
+[node name="ItensButton" type="Button" parent="UI_Batalha/ColorRect/BotõesBatalha"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_kinr6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rca61")
 text = "Itens"
 
-[node name="Button3" type="Button" parent="UI/ColorRect/VBoxContainer"]
+[node name="MenuButton" type="Button" parent="UI_Batalha/ColorRect/BotõesBatalha"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 40)
 layout_mode = 2
-text = "Menu"
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_kinr6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rca61")
+text = "Menu
+"
 
-[node name="MarginContainer" type="MarginContainer" parent="UI/ColorRect"]
+[node name="MarginContainer" type="MarginContainer" parent="UI_Batalha/ColorRect"]
 layout_mode = 0
 offset_left = 883.0
 offset_top = 80.0
 offset_right = 1203.0
 offset_bottom = 120.0
 
-[node name="Label" type="Label" parent="UI/ColorRect/MarginContainer"]
+[node name="Label" type="Label" parent="UI_Batalha/ColorRect/MarginContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Boss"
 
-[node name="Label2" type="Label" parent="UI/ColorRect/MarginContainer"]
+[node name="Label2" type="Label" parent="UI_Batalha/ColorRect/MarginContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "500/500"
 horizontal_alignment = 2
+
+[node name="AçõesContainer" type="VBoxContainer" parent="UI_Batalha/ColorRect"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 486.0
+offset_top = 27.0
+offset_right = 778.0
+offset_bottom = 187.0
+theme_override_constants/separation = 20
+
+[node name="AttackButton" type="Button" parent="UI_Batalha/ColorRect/AçõesContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_kinr6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rca61")
+text = "Ataque"
+
+[node name="HealButton" type="Button" parent="UI_Batalha/ColorRect/AçõesContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_kinr6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rca61")
+text = "Cura
+"
+
+[node name="VoltarButton" type="Button" parent="UI_Batalha/ColorRect/AçõesContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxFlat_kinr6")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rca61")
+text = "Voltar"

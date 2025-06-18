@@ -7,3 +7,4 @@ script = ExtResource("1_oclk3")
 amount = 30
 name = "Cura"
 description = "Cura 30 de vida."
+target_type = 1

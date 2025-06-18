@@ -3,7 +3,6 @@ class_name Action
 
 @export var name: String
 @export var description: String
-@export var icon: Texture2D
+@export var target_type: Target_type
 
-func execute(user : Character, target : Character):
-	print("%s usa %s em %s!" % [user.character_name, name, target.character_name])
+enum Target_type {ENEMIES, PLAYERS}

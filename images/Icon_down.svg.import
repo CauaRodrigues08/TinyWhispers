@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4yn6e1mc2sud"
-path="res://.godot/imported/focus.png-a9e4389a3469b11d84f1e1edf38dd8df.ctex"
+uid="uid://d0x0lyd2tk7q1"
+path="res://.godot/imported/Icon_down.svg-2334f3df43573afff1de03dc307dc677.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/focus.png"
-dest_files=["res://.godot/imported/focus.png-a9e4389a3469b11d84f1e1edf38dd8df.ctex"]
+source_file="res://images/Icon_down.svg"
+dest_files=["res://.godot/imported/Icon_down.svg-2334f3df43573afff1de03dc307dc677.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
