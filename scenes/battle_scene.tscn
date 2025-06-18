@@ -13,34 +13,135 @@ position = Vector2(700, 350)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI"]
-anchors_preset = 7
-anchor_left = 0.5
+[node name="ColorRect" type="ColorRect" parent="UI"]
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -535.0
-offset_top = -109.0
-offset_right = 535.0
+offset_left = -1.0
+offset_top = -210.0
+offset_right = -1.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 40
-alignment = 1
 
-[node name="ActionsButton" type="Button" parent="UI/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Ações
-"
+[node name="lifebar_Pedro" type="TextureProgressBar" parent="UI/ColorRect"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 24.0
+offset_right = 336.0
+offset_bottom = 49.0
 
-[node name="ItemsButton" type="Button" parent="UI/HBoxContainer"]
+[node name="Label" type="Label" parent="UI/ColorRect/lifebar_Pedro"]
 layout_mode = 2
-size_flags_horizontal = 3
-text = "Itens
-"
+offset_right = 301.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Pedro"
 
-[node name="SwitchButton" type="Button" parent="UI/HBoxContainer"]
+[node name="Label2" type="Label" parent="UI/ColorRect/lifebar_Pedro"]
 layout_mode = 2
-size_flags_horizontal = 3
-text = "Trocar posição
-"
+offset_right = 301.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "100/100"
+horizontal_alignment = 2
+
+[node name="lifebar_Levi" type="TextureProgressBar" parent="UI/ColorRect"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 64.0
+offset_right = 336.0
+offset_bottom = 89.0
+
+[node name="Label" type="Label" parent="UI/ColorRect/lifebar_Levi"]
+layout_mode = 2
+offset_right = 301.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Levi"
+
+[node name="Label2" type="Label" parent="UI/ColorRect/lifebar_Levi"]
+layout_mode = 2
+offset_right = 301.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "100/100"
+horizontal_alignment = 2
+
+[node name="lifebar_Sofia" type="TextureProgressBar" parent="UI/ColorRect"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 104.0
+offset_right = 336.0
+offset_bottom = 129.0
+
+[node name="Label" type="Label" parent="UI/ColorRect/lifebar_Sofia"]
+layout_mode = 2
+offset_right = 301.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Sofia"
+
+[node name="Label2" type="Label" parent="UI/ColorRect/lifebar_Sofia"]
+layout_mode = 2
+offset_right = 301.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "100/100"
+horizontal_alignment = 2
+
+[node name="lifebar_Lucas" type="MarginContainer" parent="UI/ColorRect"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 144.0
+offset_right = 336.0
+offset_bottom = 169.0
+
+[node name="Label" type="Label" parent="UI/ColorRect/lifebar_Lucas"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Lucas"
+
+[node name="Label2" type="Label" parent="UI/ColorRect/lifebar_Lucas"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "100/100"
+horizontal_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/ColorRect"]
+layout_mode = 0
+offset_left = 498.0
+offset_top = 38.0
+offset_right = 793.0
+offset_bottom = 171.0
+theme_override_constants/separation = 20
+
+[node name="Button" type="Button" parent="UI/ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "Ações"
+
+[node name="Button2" type="Button" parent="UI/ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "Itens"
+
+[node name="Button3" type="Button" parent="UI/ColorRect/VBoxContainer"]
+layout_mode = 2
+text = "Menu"
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/ColorRect"]
+layout_mode = 0
+offset_left = 883.0
+offset_top = 80.0
+offset_right = 1203.0
+offset_bottom = 120.0
+
+[node name="Label" type="Label" parent="UI/ColorRect/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Boss"
+
+[node name="Label2" type="Label" parent="UI/ColorRect/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "500/500"
+horizontal_alignment = 2
