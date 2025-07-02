@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://c8km0815aoijs"]
+
+[ext_resource type="Texture2D" uid="uid://b7816iqqsqxrw" path="res://images/TELA-INICIAL-OFC.png" id="1_yqeox"]
+[ext_resource type="Texture2D" uid="uid://p7hj8torl284" path="res://images/NovoJogo1.png" id="2_con2f"]
+[ext_resource type="Texture2D" uid="uid://hvqwsohu11gl" path="res://images/Settings1.png" id="2_v86rl"]
+[ext_resource type="Texture2D" uid="uid://k4a6t8nyyps6" path="res://images/Settings2.png" id="3_13sgg"]
+[ext_resource type="Texture2D" uid="uid://3xf524saayds" path="res://images/NovoJogo2.png" id="3_mhnvy"]
+[ext_resource type="Texture2D" uid="uid://be58twgg14q0l" path="res://images/Creditos1.png" id="4_i6lef"]
+[ext_resource type="Texture2D" uid="uid://b4oma4gbjot3o" path="res://images/Creditos2.png" id="5_70i5f"]
+[ext_resource type="Script" uid="uid://buahm81e383vd" path="res://scenes/novo_jogo.gd" id="8_13sgg"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1279.0
+offset_bottom = 719.0
+
+[node name="Coisa" type="Sprite2D" parent="Control"]
+position = Vector2(634, 359)
+scale = Vector2(0.7, 0.7)
+
+[node name="ColorRect" type="ColorRect" parent="Control/Coisa"]
+offset_left = -907.0
+offset_top = -513.0
+offset_right = 919.0
+offset_bottom = 519.0
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(630, 375)
+scale = Vector2(0.7, 0.692)
+texture = ExtResource("1_yqeox")
+
+[node name="Settings" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 678.0
+offset_top = 425.0
+offset_right = 1250.0
+offset_bottom = 505.0
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("2_v86rl")
+texture_hover = ExtResource("3_13sgg")
+
+[node name="Creditos" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 754.0
+offset_top = 505.0
+offset_right = 1147.0
+offset_bottom = 585.0
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("4_i6lef")
+texture_hover = ExtResource("5_70i5f")
+
+[node name="NovoJogo" type="TextureButton" parent="Control"]
+layout_mode = 0
+offset_left = 747.0
+offset_top = 344.0
+offset_right = 1140.0
+offset_bottom = 424.0
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("2_con2f")
+texture_hover = ExtResource("3_mhnvy")
+script = ExtResource("8_13sgg")
