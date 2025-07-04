@@ -14,10 +14,11 @@ offset_bottom = 721.0
 
 [node name="Button" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 1123.0
-offset_top = 207.0
-offset_right = 1244.0
-offset_bottom = 496.0
+offset_left = 505.0
+offset_top = 131.0
+offset_right = 626.0
+offset_bottom = 420.0
+rotation = 4.71239
 script = ExtResource("2_guqla")
 
 [node name="Sprite2D" type="Sprite2D" parent="Control/Button"]
@@ -26,9 +27,9 @@ scale = Vector2(0.692, 1)
 texture = ExtResource("2_lsfxw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(217, 306)
+position = Vector2(636, 493)
 rotation = 3.14159
-scale = Vector2(0.5, -0.5)
+scale = Vector2(-0.4, -0.4)
 texture = ExtResource("3_34ea7")
 
 [connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_pressed"]

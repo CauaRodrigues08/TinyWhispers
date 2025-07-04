@@ -63,3 +63,5 @@ scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("2_con2f")
 texture_hover = ExtResource("3_mhnvy")
 script = ExtResource("8_13sgg")
+
+[connection signal="pressed" from="Control/NovoJogo" to="Control/NovoJogo" method="_on_pressed"]

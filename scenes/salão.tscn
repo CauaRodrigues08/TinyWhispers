@@ -3,9 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bq5kyiapaul8h" path="res://images/salaoTiny.png" id="1_ax71t"]
 [ext_resource type="Texture2D" uid="uid://duv0eso5c5e7u" path="res://images/724954_resized.png" id="2_1nuwv"]
 [ext_resource type="Script" uid="uid://viei65cpl4ha" path="res://scenes/descricoes.gd" id="2_v3l2x"]
-[ext_resource type="Script" uid="uid://w2u0358u11yb" path="res://scenes/sala_pirata.gd" id="2_vl77g"]
-[ext_resource type="Script" uid="uid://can66iiustl17" path="res://scenes/sala_sack_man.gd" id="4_elxrc"]
-[ext_resource type="Script" uid="uid://bhd8on1ytt1wa" path="res://scenes/sala_palhaço.gd" id="5_n7ojm"]
+[ext_resource type="Script" uid="uid://bhd8on1ytt1wa" path="res://scenes/sala_pirata.gd" id="5_n7ojm"]
 [ext_resource type="Script" uid="uid://coeafvmu1cqny" path="res://scenes/bola.gd" id="6_elxrc"]
 [ext_resource type="Script" uid="uid://bwsgbveseqms8" path="res://scenes/letrinhas_texto.gd" id="6_l8v38"]
 [ext_resource type="Script" uid="uid://cok4ap562pu3i" path="res://scenes/letrinhas.gd" id="7_44tr4"]
@@ -25,7 +23,9 @@
 [ext_resource type="Script" uid="uid://clpr1nw4iiyk7" path="res://scenes/desenho_1.gd" id="22_8l2dd"]
 [ext_resource type="Script" uid="uid://brjxmmkwd5n1f" path="res://scenes/desenhos_texto.gd" id="23_v3l2x"]
 [ext_resource type="Script" uid="uid://c6hv50llxpacl" path="res://scenes/desenho_2.gd" id="24_65ack"]
+[ext_resource type="Script" uid="uid://c7nk5sa6xctm7" path="res://scenes/cubo_m_texto.gd" id="25_8l2dd"]
 [ext_resource type="Script" uid="uid://dy6h7yn2vcc5t" path="res://scenes/desenho_3.gd" id="25_cpgp5"]
+[ext_resource type="Script" uid="uid://cceua7wkanup1" path="res://scenes/cubo_m.gd" id="26_v3l2x"]
 
 [node name="Salão" type="Node2D"]
 
@@ -43,39 +43,12 @@ offset_bottom = 720.0
 script = ExtResource("2_v3l2x")
 metadata/_edit_lock_ = true
 
-[node name="Sala_PirataE" type="Button" parent="botões"]
-layout_mode = 0
-offset_left = 19.0
-offset_top = 230.0
-offset_right = 140.0
-offset_bottom = 519.0
-script = ExtResource("2_vl77g")
-
-[node name="Sprite2D" type="Sprite2D" parent="botões/Sala_PirataE"]
-position = Vector2(61.1472, 144)
-rotation = 3.14159
-scale = Vector2(0.692024, 1)
-texture = ExtResource("2_1nuwv")
-
-[node name="Sala_SackManD" type="Button" parent="botões"]
-layout_mode = 0
-offset_left = 1130.0
-offset_top = 230.0
-offset_right = 1251.0
-offset_bottom = 519.0
-script = ExtResource("4_elxrc")
-
-[node name="Sprite2D" type="Sprite2D" parent="botões/Sala_SackManD"]
-position = Vector2(60.5, 142)
-scale = Vector2(0.691428, 1)
-texture = ExtResource("2_1nuwv")
-
-[node name="Sala_PalhaçoB" type="Button" parent="botões"]
+[node name="Sala_Pirata" type="Button" parent="botões"]
 layout_mode = 0
 offset_left = 765.0
-offset_top = 570.0
+offset_top = 576.0
 offset_right = 948.0
-offset_bottom = 890.0
+offset_bottom = 896.0
 rotation = 1.5708
 scale = Vector2(0.75, 0.75)
 icon = ExtResource("2_1nuwv")
@@ -261,6 +234,22 @@ offset_right = 669.0
 offset_bottom = 402.0
 script = ExtResource("13_s4fgf")
 
-[connection signal="pressed" from="botões/Sala_PirataE" to="botões/Sala_PirataE" method="_on_pressed"]
-[connection signal="pressed" from="botões/Sala_SackManD" to="botões/Sala_SackManD" method="_on_pressed"]
-[connection signal="pressed" from="botões/Sala_PalhaçoB" to="botões/Sala_PalhaçoB" method="_on_pressed"]
+[node name="cuboM" type="Node2D" parent="botões"]
+
+[node name="cuboM_texto" type="Label" parent="botões/cuboM"]
+offset_left = 79.0
+offset_top = -9.0
+offset_right = 467.0
+offset_bottom = 36.0
+scale = Vector2(3, 3)
+script = ExtResource("25_8l2dd")
+
+[node name="cuboM" type="Button" parent="botões/cuboM"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 976.0
+offset_top = 293.0
+offset_right = 1019.0
+offset_bottom = 328.0
+script = ExtResource("26_v3l2x")
+
+[connection signal="pressed" from="botões/Sala_Pirata" to="botões/Sala_Pirata" method="_on_pressed"]
