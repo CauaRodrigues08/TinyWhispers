@@ -1,11 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ca8ecj4dtt7ov"]
+[gd_scene load_steps=2 format=3 uid="uid://ca8ecj4dtt7ov"]
 
 [ext_resource type="Script" uid="uid://cwpn0v52rqajn" path="res://characters/character.gd" id="1_wx80t"]
-[ext_resource type="PackedScene" uid="uid://6qqg7rrqki46" path="res://scenes/turn_based_agent.tscn" id="2_qqr4u"]
 
 [node name="Character" type="Node2D"]
 script = ExtResource("1_wx80t")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-
-[node name="TurnBasedAgent" parent="." instance=ExtResource("2_qqr4u")]
