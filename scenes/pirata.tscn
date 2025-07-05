@@ -27,9 +27,11 @@ scale = Vector2(0.692, 1)
 texture = ExtResource("2_lsfxw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(636, 493)
+position = Vector2(1045, 390)
 rotation = 3.14159
 scale = Vector2(-0.4, -0.4)
 texture = ExtResource("3_34ea7")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_pressed"]

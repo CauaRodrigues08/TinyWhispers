@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://wqkhahbgbyai"]
+[gd_scene load_steps=28 format=3 uid="uid://wqkhahbgbyai"]
 
 [ext_resource type="Texture2D" uid="uid://bq5kyiapaul8h" path="res://images/salaoTiny.png" id="1_ax71t"]
 [ext_resource type="Texture2D" uid="uid://duv0eso5c5e7u" path="res://images/724954_resized.png" id="2_1nuwv"]
@@ -26,6 +26,7 @@
 [ext_resource type="Script" uid="uid://c7nk5sa6xctm7" path="res://scenes/cubo_m_texto.gd" id="25_8l2dd"]
 [ext_resource type="Script" uid="uid://dy6h7yn2vcc5t" path="res://scenes/desenho_3.gd" id="25_cpgp5"]
 [ext_resource type="Script" uid="uid://cceua7wkanup1" path="res://scenes/cubo_m.gd" id="26_v3l2x"]
+[ext_resource type="AudioStream" uid="uid://dd3rpsrafnpw" path="res://musics/TW_Project.mp3" id="27_65ack"]
 
 [node name="Salão" type="Node2D"]
 
@@ -251,5 +252,10 @@ offset_top = 293.0
 offset_right = 1019.0
 offset_bottom = 328.0
 script = ExtResource("26_v3l2x")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("27_65ack")
+volume_db = 10.0
+autoplay = true
 
 [connection signal="pressed" from="botões/Sala_Pirata" to="botões/Sala_Pirata" method="_on_pressed"]

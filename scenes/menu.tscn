@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c8km0815aoijs"]
+[gd_scene load_steps=10 format=3 uid="uid://c8km0815aoijs"]
 
 [ext_resource type="Texture2D" uid="uid://b7816iqqsqxrw" path="res://images/TELA-INICIAL-OFC.png" id="1_yqeox"]
 [ext_resource type="Texture2D" uid="uid://p7hj8torl284" path="res://images/NovoJogo1.png" id="2_con2f"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://be58twgg14q0l" path="res://images/Creditos1.png" id="4_i6lef"]
 [ext_resource type="Texture2D" uid="uid://b4oma4gbjot3o" path="res://images/Creditos2.png" id="5_70i5f"]
 [ext_resource type="Script" uid="uid://buahm81e383vd" path="res://scenes/novo_jogo.gd" id="8_13sgg"]
+[ext_resource type="AudioStream" uid="uid://1udma7g7qoka" path="res://musics/a_Dark_Whisper_Into_the_Abyss (1).wav" id="9_i6lef"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -63,5 +64,9 @@ scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("2_con2f")
 texture_hover = ExtResource("3_mhnvy")
 script = ExtResource("8_13sgg")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_i6lef")
+autoplay = true
 
 [connection signal="pressed" from="Control/NovoJogo" to="Control/NovoJogo" method="_on_pressed"]

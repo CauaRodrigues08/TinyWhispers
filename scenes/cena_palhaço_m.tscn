@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc67kiis8vo6g"]
+
+[ext_resource type="Texture2D" uid="uid://b2s5eidpqoref" path="res://images/Clown.png" id="1_pbh3d"]
+[ext_resource type="Texture2D" uid="uid://duv0eso5c5e7u" path="res://images/724954_resized.png" id="2_ca722"]
+
+[node name="CenaPalhaçoM" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1279.0
+offset_bottom = 720.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(628, 454)
+rotation = 1.5708
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_pbh3d")
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 739.0
+offset_top = 565.0
+offset_right = 922.0
+offset_bottom = 851.0
+rotation = 1.5708
+scale = Vector2(0.8, 0.8)
+icon = ExtResource("2_ca722")
