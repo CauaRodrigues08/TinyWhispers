@@ -23,9 +23,9 @@
 [ext_resource type="Script" uid="uid://clpr1nw4iiyk7" path="res://scenes/desenho_1.gd" id="22_8l2dd"]
 [ext_resource type="Script" uid="uid://brjxmmkwd5n1f" path="res://scenes/desenhos_texto.gd" id="23_v3l2x"]
 [ext_resource type="Script" uid="uid://c6hv50llxpacl" path="res://scenes/desenho_2.gd" id="24_65ack"]
-[ext_resource type="Script" uid="uid://c7nk5sa6xctm7" path="res://scenes/cubo_m_texto.gd" id="25_8l2dd"]
+[ext_resource type="Script" path="res://scenes/cubo_m_texto.gd" id="25_8l2dd"]
 [ext_resource type="Script" uid="uid://dy6h7yn2vcc5t" path="res://scenes/desenho_3.gd" id="25_cpgp5"]
-[ext_resource type="Script" uid="uid://cceua7wkanup1" path="res://scenes/cubo_m.gd" id="26_v3l2x"]
+[ext_resource type="Script" path="res://scenes/cubo_m.gd" id="26_v3l2x"]
 [ext_resource type="AudioStream" uid="uid://dd3rpsrafnpw" path="res://musics/TW_Project.mp3" id="27_65ack"]
 
 [node name="Salão" type="Node2D"]

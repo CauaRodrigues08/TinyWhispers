@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://3xf524saayds" path="res://images/NovoJogo2.png" id="3_mhnvy"]
 [ext_resource type="Texture2D" uid="uid://be58twgg14q0l" path="res://images/Creditos1.png" id="4_i6lef"]
 [ext_resource type="Texture2D" uid="uid://b4oma4gbjot3o" path="res://images/Creditos2.png" id="5_70i5f"]
-[ext_resource type="Script" uid="uid://buahm81e383vd" path="res://scenes/novo_jogo.gd" id="8_13sgg"]
+[ext_resource type="Script" path="res://scenes/novo_jogo.gd" id="8_13sgg"]
 [ext_resource type="AudioStream" uid="uid://1udma7g7qoka" path="res://musics/a_Dark_Whisper_Into_the_Abyss (1).wav" id="9_i6lef"]
 
 [node name="Node2D" type="Node2D"]
