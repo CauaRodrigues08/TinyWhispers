@@ -1,7 +1,321 @@
-[gd_scene load_steps=2 format=3 uid="uid://c08k2gp8oit48"]
+[gd_scene load_steps=28 format=3 uid="uid://dlax6jrwv6qyg"]
 
-[ext_resource type="PackedScene" uid="uid://bcxghbbu6ybxs" path="res://scenes/player_group.tscn" id="1_lq5a5"]
+[ext_resource type="FontFile" uid="uid://c38sc5ot4frjv" path="res://fonts/Mistral Regular.ttf" id="1_pxwbd"]
+[ext_resource type="Texture2D" uid="uid://ckmwg0bu8e8o2" path="res://images/Action_icon.svg" id="3_1i8jf"]
+[ext_resource type="Texture2D" uid="uid://dvf8j3mpgflvv" path="res://images/Itens_icon.svg" id="4_svpld"]
+[ext_resource type="Texture2D" uid="uid://cohmqucilo6do" path="res://images/Surrender_icon.svg" id="5_rum4d"]
+[ext_resource type="Texture2D" uid="uid://bsrsy5udk2f8p" path="res://images/Room_perspective.png" id="7_svpld"]
+
+[sub_resource type="GDScript" id="GDScript_kinr6"]
+
+[sub_resource type="Gradient" id="Gradient_3oc74"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 0.435294, 0.0784314, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0gp0h"]
+gradient = SubResource("Gradient_3oc74")
+width = 400
+height = 23
+
+[sub_resource type="Gradient" id="Gradient_g72on"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 0.435294, 0.0784314, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tttxe"]
+gradient = SubResource("Gradient_g72on")
+width = 400
+height = 30
+
+[sub_resource type="Gradient" id="Gradient_ti0og"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 0.435294, 0.0784314, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bg0yk"]
+gradient = SubResource("Gradient_ti0og")
+width = 400
+height = 30
+
+[sub_resource type="Gradient" id="Gradient_yt3ua"]
+offsets = PackedFloat32Array(0.924528)
+colors = PackedColorArray(0, 0.435294, 0.0784314, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3xrod"]
+gradient = SubResource("Gradient_yt3ua")
+width = 400
+height = 30
+
+[sub_resource type="Gradient" id="Gradient_0gp0h"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.0588235, 0.00392157, 0.0196078, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g72on"]
+gradient = SubResource("Gradient_0gp0h")
+width = 301
+height = 30
+
+[sub_resource type="Gradient" id="Gradient_tttxe"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 0.435294, 0.0784314, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ti0og"]
+gradient = SubResource("Gradient_tttxe")
+width = 301
+height = 30
+
+[sub_resource type="Gradient" id="Gradient_bg0yk"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.0588235, 0.00392157, 0.0196078, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yt3ua"]
+gradient = SubResource("Gradient_bg0yk")
+width = 184
+height = 83
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3xrod"]
+texture = SubResource("GradientTexture2D_yt3ua")
+texture_margin_left = 20.0
+texture_margin_top = 5.0
+texture_margin_right = 10.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="Gradient" id="Gradient_05s0e"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.0588235, 0.00392157, 0.0196078, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j0cvo"]
+gradient = SubResource("Gradient_05s0e")
+width = 184
+height = 83
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sjku2"]
+texture = SubResource("GradientTexture2D_j0cvo")
+texture_margin_left = 10.0
+texture_margin_top = 5.0
+texture_margin_right = 10.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="Gradient" id="Gradient_7mjbx"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.0588235, 0.00392157, 0.0196078, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jrwob"]
+gradient = SubResource("Gradient_7mjbx")
+width = 184
+height = 83
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_porms"]
+texture = SubResource("GradientTexture2D_jrwob")
+texture_margin_left = 10.0
+texture_margin_top = 5.0
+texture_margin_right = 10.0
+texture_margin_bottom = 5.0
 
 [node name="Battle_Scene" type="Node2D"]
 
-[node name="PlayerGroup" parent="." instance=ExtResource("1_lq5a5")]
+[node name="UI_Batalha" type="CanvasLayer" parent="."]
+script = SubResource("GDScript_kinr6")
+
+[node name="ColorRect" type="ColorRect" parent="UI_Batalha"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -242.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.137255, 0.00784314, 0.0392157, 1)
+
+[node name="lifebar_Pedro" type="TextureProgressBar" parent="UI_Batalha/ColorRect"]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 12.0
+offset_right = 534.0
+offset_bottom = 35.0
+texture_progress = SubResource("GradientTexture2D_0gp0h")
+
+[node name="Label" type="Label" parent="UI_Batalha/ColorRect/lifebar_Pedro"]
+layout_mode = 2
+offset_left = -56.0
+offset_right = -3.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_pxwbd")
+theme_override_font_sizes/font_size = 30
+text = "PEDRO"
+
+[node name="Label2" type="Label" parent="UI_Batalha/ColorRect/lifebar_Pedro"]
+layout_mode = 2
+offset_right = 400.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_pxwbd")
+theme_override_font_sizes/font_size = 30
+text = "100/100"
+horizontal_alignment = 2
+
+[node name="lifebar_Levi" type="TextureProgressBar" parent="UI_Batalha/ColorRect"]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 12.0
+offset_right = 534.0
+offset_bottom = 42.0
+texture_progress = SubResource("GradientTexture2D_tttxe")
+
+[node name="Label" type="Label" parent="UI_Batalha/ColorRect/lifebar_Levi"]
+layout_mode = 2
+offset_left = -56.0
+offset_right = -8.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_pxwbd")
+theme_override_font_sizes/font_size = 30
+text = "LEVI"
+
+[node name="Label2" type="Label" parent="UI_Batalha/ColorRect/lifebar_Levi"]
+layout_mode = 2
+offset_right = 400.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_pxwbd")
+theme_override_font_sizes/font_size = 30
+text = "100/100"
+horizontal_alignment = 2
+
+[node name="lifebar_Sofia" type="TextureProgressBar" parent="UI_Batalha/ColorRect"]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 12.0
+offset_right = 534.0
+offset_bottom = 35.0
+texture_progress = SubResource("GradientTexture2D_bg0yk")
+
+[node name="Label" type="Label" parent="UI_Batalha/ColorRect/lifebar_Sofia"]
+layout_mode = 2
+offset_left = -56.0
+offset_right = -8.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_pxwbd")
+theme_override_font_sizes/font_size = 30
+text = "SOFIA"
+
+[node name="Label2" type="Label" parent="UI_Batalha/ColorRect/lifebar_Sofia"]
+layout_mode = 2
+offset_right = 400.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_pxwbd")
+theme_override_font_sizes/font_size = 30
+text = "100/100"
+horizontal_alignment = 2
+
+[node name="lifebar_Luís" type="TextureProgressBar" parent="UI_Batalha/ColorRect"]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 12.0
+offset_right = 534.0
+offset_bottom = 42.0
+value = 100.0
+texture_progress = SubResource("GradientTexture2D_3xrod")
+
+[node name="Label2" type="Label" parent="UI_Batalha/ColorRect/lifebar_Luís"]
+layout_mode = 2
+offset_top = 1.0
+offset_right = 400.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_pxwbd")
+theme_override_font_sizes/font_size = 30
+text = "100/100"
+horizontal_alignment = 2
+
+[node name="Label" type="Label" parent="UI_Batalha/ColorRect/lifebar_Luís"]
+layout_mode = 0
+offset_left = -56.0
+offset_right = -17.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_pxwbd")
+theme_override_font_sizes/font_size = 30
+text = "LUÍS"
+
+[node name="Lifebar_Boss" type="TextureProgressBar" parent="UI_Batalha/ColorRect"]
+layout_mode = 0
+offset_left = 842.0
+offset_top = 12.0
+offset_right = 1143.0
+offset_bottom = 42.0
+value = 100.0
+texture_under = SubResource("GradientTexture2D_g72on")
+texture_progress = SubResource("GradientTexture2D_ti0og")
+
+[node name="Label" type="Label" parent="UI_Batalha/ColorRect/Lifebar_Boss"]
+layout_mode = 2
+offset_left = -51.0
+offset_right = -1.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_pxwbd")
+theme_override_font_sizes/font_size = 30
+text = "BOSS"
+
+[node name="Label2" type="Label" parent="UI_Batalha/ColorRect/Lifebar_Boss"]
+layout_mode = 2
+offset_left = 2.0
+offset_right = 303.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_pxwbd")
+theme_override_font_sizes/font_size = 30
+text = "500/500"
+horizontal_alignment = 2
+
+[node name="RoomPerspective" type="Sprite2D" parent="UI_Batalha/ColorRect"]
+position = Vector2(639.5, -242.5)
+scale = Vector2(0.847379, 0.82931)
+texture = ExtResource("7_svpld")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI_Batalha/ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -422.0
+offset_top = -75.0
+offset_right = 461.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 100
+
+[node name="Action_button" type="Button" parent="UI_Batalha/ColorRect/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 15
+theme_override_fonts/font = ExtResource("1_pxwbd")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_3xrod")
+text = "AÇÕES
+"
+icon = ExtResource("3_1i8jf")
+
+[node name="Itens_button" type="Button" parent="UI_Batalha/ColorRect/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 15
+theme_override_fonts/font = ExtResource("1_pxwbd")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_sjku2")
+text = "ITENS"
+icon = ExtResource("4_svpld")
+
+[node name="Surrender_button" type="Button" parent="UI_Batalha/ColorRect/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.839216, 0.0509804, 0.0509804, 1)
+theme_override_constants/h_separation = 15
+theme_override_fonts/font = ExtResource("1_pxwbd")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_porms")
+text = "FUGIR
+"
+icon = ExtResource("5_rum4d")
