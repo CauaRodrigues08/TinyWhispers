@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6l5uog0f84ds"]
+
+[ext_resource type="Texture2D" uid="uid://d2gatkbtuk4to" path="res://images/sackMan.png" id="1_7n1dw"]
+
+[node name="homem_do_saco_inimigo" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_7n1dw")

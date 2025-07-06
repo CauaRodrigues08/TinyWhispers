@@ -1,17 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcxghbbu6ybxs"]
+[gd_scene load_steps=6 format=3 uid="uid://bcxghbbu6ybxs"]
 
-[sub_resource type="GDScript" id="GDScript_uintt"]
-script/source = "extends Node2D
-
-@onready var characters_node : Node2D = $Characters
-var player_characters : Array = [Character]
-
-func _ready():
-	player_characters = characters_node.get_children()
-	
-	for i in range(player_characters.size()):
-		player_characters[i].position = Vector2(i * 120, 0)
-"
+[ext_resource type="PackedScene" uid="uid://jje7geo6py7e" path="res://characters/player/pedro.tscn" id="1_m4sb2"]
+[ext_resource type="Script" uid="uid://bseuavj0nxuit" path="res://scenes/player_group.gd" id="1_uo00q"]
+[ext_resource type="PackedScene" uid="uid://b4rifp4ien0x3" path="res://characters/player/levi.tscn" id="2_4wjx3"]
+[ext_resource type="PackedScene" uid="uid://esythk1ilcrn" path="res://characters/player/luis.tscn" id="3_lwax1"]
+[ext_resource type="PackedScene" uid="uid://ddacbp71x4vla" path="res://characters/player/sophia.tscn" id="4_8wicv"]
 
 [node name="PlayerGroup" type="Node2D"]
-script = SubResource("GDScript_uintt")
+script = ExtResource("1_uo00q")
+
+[node name="player_characters" type="Node2D" parent="."]
+
+[node name="Sophia" parent="player_characters" instance=ExtResource("4_8wicv")]
+
+[node name="Luis" parent="player_characters" instance=ExtResource("3_lwax1")]
+
+[node name="Levi" parent="player_characters" instance=ExtResource("2_4wjx3")]
+
+[node name="Pedro" parent="player_characters" instance=ExtResource("1_m4sb2")]

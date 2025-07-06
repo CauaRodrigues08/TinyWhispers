@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddacbp71x4vla"]
+
+[ext_resource type="Texture2D" uid="uid://cwybgjtf6t5jr" path="res://images/sophia.png" id="1_u6sor"]
+
+[node name="Sophia" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_u6sor")
