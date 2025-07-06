@@ -1,7 +1,7 @@
 extends Label
 
 func _ready():
-	text = "Hieeeoon~ Levi está segurando um avião!"
+	text = "Hieeeoon~ Pedro está segurando um avião!"
 	visible = false
 
 	add_theme_color_override("font_color", Color.WHITE)

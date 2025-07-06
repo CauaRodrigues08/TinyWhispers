@@ -1,29 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://bcxghbbu6ybxs"]
+[gd_scene load_steps=2 format=3 uid="uid://bcxghbbu6ybxs"]
 
-[ext_resource type="PackedScene" uid="uid://ca8ecj4dtt7ov" path="res://characters/character.tscn" id="1_3581w"]
-[ext_resource type="Script" uid="uid://8d2tohsf25a7" path="res://scenes/player_group.gd" id="1_uo00q"]
-[ext_resource type="Resource" uid="uid://b4hih70mdr7h7" path="res://characters/player/levi.tres" id="2_tdtiy"]
-[ext_resource type="Resource" uid="uid://da5ufpubkllcy" path="res://characters/player/luis.tres" id="3_km5cl"]
-[ext_resource type="Resource" uid="uid://xbp2g4r138v8" path="res://characters/player/sofia.tres" id="4_gux8x"]
-[ext_resource type="Resource" uid="uid://snkakqtbkrfu" path="res://characters/player/pedro.tres" id="5_q0gk7"]
+[sub_resource type="GDScript" id="GDScript_uintt"]
+script/source = "extends Node2D
+
+@onready var characters_node : Node2D = $Characters
+var player_characters : Array = [Character]
+
+func _ready():
+	player_characters = characters_node.get_children()
+	
+	for i in range(player_characters.size()):
+		player_characters[i].position = Vector2(i * 120, 0)
+"
 
 [node name="PlayerGroup" type="Node2D"]
-script = ExtResource("1_uo00q")
-
-[node name="Characters" type="Node2D" parent="."]
-
-[node name="Sofia" parent="Characters" instance=ExtResource("1_3581w")]
-scale = Vector2(0.3, 0.3)
-stats = ExtResource("4_gux8x")
-
-[node name="Luis" parent="Characters" instance=ExtResource("1_3581w")]
-scale = Vector2(0.3, 0.3)
-stats = ExtResource("3_km5cl")
-
-[node name="Levi" parent="Characters" instance=ExtResource("1_3581w")]
-scale = Vector2(0.3, 0.3)
-stats = ExtResource("2_tdtiy")
-
-[node name="Pedro" parent="Characters" instance=ExtResource("1_3581w")]
-scale = Vector2(0.3, 0.3)
-stats = ExtResource("5_q0gk7")
+script = SubResource("GDScript_uintt")
