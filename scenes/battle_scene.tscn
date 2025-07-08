@@ -1,13 +1,14 @@
-[gd_scene load_steps=32 format=3 uid="uid://dlax6jrwv6qyg"]
+[gd_scene load_steps=33 format=3 uid="uid://dlax6jrwv6qyg"]
 
+[ext_resource type="Script" uid="uid://dj85rbew7y016" path="res://scenes/battle_manager.gd" id="1_g72on"]
 [ext_resource type="FontFile" uid="uid://c38sc5ot4frjv" path="res://fonts/Mistral Regular.ttf" id="1_pxwbd"]
-[ext_resource type="Script" uid="uid://0dyxwm6o4flv" path="res://scenes/battle_scene.gd" id="1_rum4d"]
 [ext_resource type="Texture2D" uid="uid://bfo1axl4fl71m" path="res://images/Room-Perspective.svg" id="2_pxwbd"]
 [ext_resource type="Texture2D" uid="uid://dutwnv61ivhbv" path="res://images/CONTENT-BOX.svg" id="2_svpld"]
 [ext_resource type="Texture2D" uid="uid://ckmwg0bu8e8o2" path="res://images/Action_icon.svg" id="3_1i8jf"]
 [ext_resource type="Texture2D" uid="uid://dvf8j3mpgflvv" path="res://images/Itens_icon.svg" id="4_svpld"]
 [ext_resource type="Texture2D" uid="uid://cohmqucilo6do" path="res://images/Surrender_icon.svg" id="5_rum4d"]
 [ext_resource type="PackedScene" uid="uid://bcxghbbu6ybxs" path="res://scenes/player_group.tscn" id="6_1i8jf"]
+[ext_resource type="PackedScene" uid="uid://cuvpq3y7pgksm" path="res://scenes/enemy_group.tscn" id="10_g72on"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_svpld"]
 
@@ -116,7 +117,13 @@ texture_margin_right = 10.0
 texture_margin_bottom = 5.0
 
 [node name="Battle_Scene" type="Node2D"]
-script = ExtResource("1_rum4d")
+
+[node name="battle_manager" type="Node2D" parent="."]
+script = ExtResource("1_g72on")
+
+[node name="UI_Manager" type="Node2D" parent="battle_manager"]
+
+[node name="Turn_Queue_Manager" type="Node2D" parent="battle_manager"]
 
 [node name="RoomPerspective" type="Sprite2D" parent="."]
 position = Vector2(639.5, 214)
@@ -151,6 +158,7 @@ expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="ActionsContainer" type="HBoxContainer" parent="UI_Batalha/UIBackground/ContentBox"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -161,10 +169,15 @@ offset_right = -11.0
 offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 200
 alignment = 1
 
-[node name="Action1Button" type="Button" parent="UI_Batalha/UIBackground/ContentBox/ActionsContainer"]
+[node name="PedroActions" type="HBoxContainer" parent="UI_Batalha/UIBackground/ContentBox/ActionsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="SocoButton" type="Button" parent="UI_Batalha/UIBackground/ContentBox/ActionsContainer/PedroActions"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_pxwbd")
@@ -172,7 +185,8 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxTexture_svpld")
 text = "SOCO"
 
-[node name="Action2Button" type="Button" parent="UI_Batalha/UIBackground/ContentBox/ActionsContainer"]
+[node name="CaretaButton" type="Button" parent="UI_Batalha/UIBackground/ContentBox/ActionsContainer/PedroActions"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_pxwbd")
@@ -180,7 +194,77 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxTexture_rum4d")
 text = "CARETA"
 
+[node name="LeviActions" type="HBoxContainer" parent="UI_Batalha/UIBackground/ContentBox/ActionsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="EspadaButton" type="Button" parent="UI_Batalha/UIBackground/ContentBox/ActionsContainer/LeviActions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pxwbd")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_svpld")
+text = "GOLPE"
+
+[node name="PontoFracoButton" type="Button" parent="UI_Batalha/UIBackground/ContentBox/ActionsContainer/LeviActions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pxwbd")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_rum4d")
+text = "PONTO FRACO"
+
+[node name="LuisActions" type="HBoxContainer" parent="UI_Batalha/UIBackground/ContentBox/ActionsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="ArremessoButton" type="Button" parent="UI_Batalha/UIBackground/ContentBox/ActionsContainer/LuisActions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pxwbd")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_svpld")
+text = "ARREMESSO"
+
+[node name="ArremessoTriploButton" type="Button" parent="UI_Batalha/UIBackground/ContentBox/ActionsContainer/LuisActions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pxwbd")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_rum4d")
+text = "ARREMESSO TRIPLO"
+
+[node name="SophiaActions" type="HBoxContainer" parent="UI_Batalha/UIBackground/ContentBox/ActionsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="AbraçoButton" type="Button" parent="UI_Batalha/UIBackground/ContentBox/ActionsContainer/SophiaActions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pxwbd")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_svpld")
+text = "ABRAÇO"
+
+[node name="AbraçoGrupoButton" type="Button" parent="UI_Batalha/UIBackground/ContentBox/ActionsContainer/SophiaActions"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pxwbd")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxTexture_rum4d")
+text = "ABRAÇO EM GRUPO"
+
 [node name="lifebar_Pedro" type="TextureProgressBar" parent="UI_Batalha/UIBackground"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 247.0
 offset_top = 19.0
@@ -189,7 +273,8 @@ offset_bottom = 49.0
 value = 100.0
 texture_progress = SubResource("GradientTexture2D_0gp0h")
 
-[node name="Label" type="Label" parent="UI_Batalha/UIBackground/lifebar_Pedro"]
+[node name="PedroNome" type="Label" parent="UI_Batalha/UIBackground/lifebar_Pedro"]
+unique_name_in_owner = true
 layout_mode = 2
 offset_left = -80.0
 offset_right = -10.0
@@ -199,7 +284,8 @@ theme_override_fonts/font = ExtResource("1_pxwbd")
 theme_override_font_sizes/font_size = 30
 text = "PEDRO"
 
-[node name="Label2" type="Label" parent="UI_Batalha/UIBackground/lifebar_Pedro"]
+[node name="PedroVidaNumero" type="Label" parent="UI_Batalha/UIBackground/lifebar_Pedro"]
+unique_name_in_owner = true
 layout_mode = 2
 offset_right = 400.0
 offset_bottom = 31.0
@@ -210,6 +296,7 @@ text = "100/100"
 horizontal_alignment = 2
 
 [node name="lifebar_Levi" type="TextureProgressBar" parent="UI_Batalha/UIBackground"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 247.0
 offset_top = 19.0
@@ -218,7 +305,8 @@ offset_bottom = 49.0
 value = 100.0
 texture_progress = SubResource("GradientTexture2D_tttxe")
 
-[node name="Label" type="Label" parent="UI_Batalha/UIBackground/lifebar_Levi"]
+[node name="LeviNome" type="Label" parent="UI_Batalha/UIBackground/lifebar_Levi"]
+unique_name_in_owner = true
 layout_mode = 2
 offset_left = -70.0
 offset_right = -22.0
@@ -228,7 +316,8 @@ theme_override_fonts/font = ExtResource("1_pxwbd")
 theme_override_font_sizes/font_size = 30
 text = "LEVI"
 
-[node name="Label2" type="Label" parent="UI_Batalha/UIBackground/lifebar_Levi"]
+[node name="LeviVidaNumero" type="Label" parent="UI_Batalha/UIBackground/lifebar_Levi"]
+unique_name_in_owner = true
 layout_mode = 2
 offset_right = 400.0
 offset_bottom = 31.0
@@ -238,7 +327,8 @@ theme_override_font_sizes/font_size = 30
 text = "100/100"
 horizontal_alignment = 2
 
-[node name="lifebar_Sofia" type="TextureProgressBar" parent="UI_Batalha/UIBackground"]
+[node name="lifebar_Sophia" type="TextureProgressBar" parent="UI_Batalha/UIBackground"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 247.0
 offset_top = 19.0
@@ -247,7 +337,8 @@ offset_bottom = 49.0
 value = 100.0
 texture_progress = SubResource("GradientTexture2D_bg0yk")
 
-[node name="Label" type="Label" parent="UI_Batalha/UIBackground/lifebar_Sofia"]
+[node name="SophiaNome" type="Label" parent="UI_Batalha/UIBackground/lifebar_Sophia"]
+unique_name_in_owner = true
 layout_mode = 2
 offset_left = -70.0
 offset_right = -12.0
@@ -257,7 +348,8 @@ theme_override_fonts/font = ExtResource("1_pxwbd")
 theme_override_font_sizes/font_size = 30
 text = "SOFIA"
 
-[node name="Label2" type="Label" parent="UI_Batalha/UIBackground/lifebar_Sofia"]
+[node name="SophiaVidaNumero" type="Label" parent="UI_Batalha/UIBackground/lifebar_Sophia"]
+unique_name_in_owner = true
 layout_mode = 2
 offset_right = 400.0
 offset_bottom = 31.0
@@ -268,6 +360,7 @@ text = "100/100"
 horizontal_alignment = 2
 
 [node name="lifebar_Luís" type="TextureProgressBar" parent="UI_Batalha/UIBackground"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 247.0
 offset_top = 19.0
@@ -276,7 +369,19 @@ offset_bottom = 49.0
 value = 100.0
 texture_progress = SubResource("GradientTexture2D_3xrod")
 
-[node name="Label2" type="Label" parent="UI_Batalha/UIBackground/lifebar_Luís"]
+[node name="LuisNome" type="Label" parent="UI_Batalha/UIBackground/lifebar_Luís"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -70.0
+offset_right = -29.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_pxwbd")
+theme_override_font_sizes/font_size = 30
+text = "LUÍS"
+
+[node name="LuisVidaNumero" type="Label" parent="UI_Batalha/UIBackground/lifebar_Luís"]
+unique_name_in_owner = true
 layout_mode = 2
 offset_top = 1.0
 offset_right = 400.0
@@ -287,17 +392,8 @@ theme_override_font_sizes/font_size = 30
 text = "100/100"
 horizontal_alignment = 2
 
-[node name="Label" type="Label" parent="UI_Batalha/UIBackground/lifebar_Luís"]
-layout_mode = 0
-offset_left = -70.0
-offset_right = -29.0
-offset_bottom = 31.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("1_pxwbd")
-theme_override_font_sizes/font_size = 30
-text = "LUÍS"
-
 [node name="Lifebar_Boss" type="TextureProgressBar" parent="UI_Batalha/UIBackground"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 785.0
 offset_top = 19.0
@@ -307,7 +403,8 @@ value = 100.0
 texture_under = SubResource("GradientTexture2D_g72on")
 texture_progress = SubResource("GradientTexture2D_ti0og")
 
-[node name="Label" type="Label" parent="UI_Batalha/UIBackground/Lifebar_Boss"]
+[node name="BossNome" type="Label" parent="UI_Batalha/UIBackground/Lifebar_Boss"]
+unique_name_in_owner = true
 layout_mode = 2
 offset_left = -100.0
 offset_right = -32.0
@@ -315,9 +412,10 @@ offset_bottom = 31.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_pxwbd")
 theme_override_font_sizes/font_size = 30
-text = "PIRATA"
+text = "BOSS"
 
-[node name="Label2" type="Label" parent="UI_Batalha/UIBackground/Lifebar_Boss"]
+[node name="BossVidaNumero" type="Label" parent="UI_Batalha/UIBackground/Lifebar_Boss"]
+unique_name_in_owner = true
 layout_mode = 2
 offset_left = 2.0
 offset_right = 303.0
@@ -343,6 +441,7 @@ grow_vertical = 0
 theme_override_constants/separation = 100
 
 [node name="Action_button" type="Button" parent="UI_Batalha/UIBackground/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/h_separation = 15
 theme_override_fonts/font = ExtResource("1_pxwbd")
@@ -353,6 +452,7 @@ text = "AÇÕES
 icon = ExtResource("3_1i8jf")
 
 [node name="Itens_button" type="Button" parent="UI_Batalha/UIBackground/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/h_separation = 15
 theme_override_fonts/font = ExtResource("1_pxwbd")
@@ -362,6 +462,7 @@ text = "ITENS"
 icon = ExtResource("4_svpld")
 
 [node name="Surrender_button" type="Button" parent="UI_Batalha/UIBackground/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.839216, 0.0509804, 0.0509804, 1)
 theme_override_constants/h_separation = 15
@@ -373,4 +474,10 @@ text = "FUGIR
 icon = ExtResource("5_rum4d")
 
 [node name="PlayerGroup" parent="." instance=ExtResource("6_1i8jf")]
+unique_name_in_owner = true
 position = Vector2(195, 290)
+
+[node name="Enemy_Group" parent="." instance=ExtResource("10_g72on")]
+unique_name_in_owner = true
+
+[connection signal="pressed" from="UI_Batalha/UIBackground/HBoxContainer/Action_button" to="." method="_on_action_button_pressed"]

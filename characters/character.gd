@@ -19,4 +19,3 @@ func setup(data: Dictionary):
 	current_hp = max_hp
 	speed = data.get("speed", 0)
 	actions = data.get("actions", [])
-	$Sprite2D.texture = data.get("texture", null)
