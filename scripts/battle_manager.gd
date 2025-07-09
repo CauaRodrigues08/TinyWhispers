@@ -124,7 +124,7 @@ func create_character(data: Dictionary) -> Node:
 func setup_turn_order():
 	turn_order = ["Pedro", "Levi", "Luis", "Sophia", "Boss"]
 
-# SISTEMA DE TTURNOS
+# SISTEMA DE TURNOS
 
 func start_turn():
 	var current_name = turn_order[current_turn_index]
@@ -187,7 +187,7 @@ func execute_enemy_turn(enemy: Character):
 	for t in targets:
 		apply_action(enemy.character_name, action_id, t)
 
-# INTERFINTERFACE DE BATALHA
+# INTERFACE DE BATALHA
 
 func show_ui_for(character_name: String):
 	
@@ -228,12 +228,10 @@ func show_ui_for(character_name: String):
 			lifebar_boss.show()
 			boss_nome.show()
 			boss_vida_numero.show()
-var personagemDoTurno: String
+
 func show_player_actions(character_name: String):
 	hide_all_actions()
-	personagemDoTurno = character_name
-func  _on_ActionsButton_pressed():
-	match personagemDoTurno:
+	match character_name:
 		"Pedro":
 			pedro_actions.show()
 		"Levi":
@@ -244,7 +242,7 @@ func  _on_ActionsButton_pressed():
 			sophia_actions.show()
 
 	ActionsContainer.show()
-	show_ui_for(personagemDoTurno)
+	show_ui_for(character_name)
 
 func hide_all_actions():
 	pedro_actions.hide()
@@ -283,6 +281,10 @@ func update_ui():
 	lifebar_boss.value = b.current_hp
 	boss_nome.text = b.character_name.to_upper()
 	boss_vida_numero.text = "%d/%d" % [b.current_hp, b.max_hp]
+
+func _on_ActionsButton_pressed():
+	ActionsContainer.show()
+	
 
 # OUTROS BOTÕES
 # As funções desses botões ainda serão implementadas
