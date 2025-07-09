@@ -479,6 +479,6 @@ position = Vector2(195, 290)
 
 [node name="Enemy_Group" parent="." instance=ExtResource("10_g72on")]
 unique_name_in_owner = true
-position = Vector2(950, 260)
+position = Vector2(1000, 220)
 
 [connection signal="pressed" from="UI_Batalha/UIBackground/HBoxContainer/Action_button" to="." method="_on_action_button_pressed"]

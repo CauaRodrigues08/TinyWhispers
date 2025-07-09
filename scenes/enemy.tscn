@@ -3,4 +3,4 @@
 [node name="enemy" type="Node2D"]
 
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.35, 0.35)
