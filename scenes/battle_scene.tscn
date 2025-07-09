@@ -1,10 +1,10 @@
 [gd_scene load_steps=33 format=3 uid="uid://dlax6jrwv6qyg"]
 
-[ext_resource type="Script" uid="uid://dj85rbew7y016" path="res://scenes/battle_manager.gd" id="1_g72on"]
+[ext_resource type="Script" uid="uid://dj85rbew7y016" path="res://scripts/battle_manager.gd" id="1_g72on"]
 [ext_resource type="FontFile" uid="uid://c38sc5ot4frjv" path="res://fonts/Mistral Regular.ttf" id="1_pxwbd"]
 [ext_resource type="Texture2D" uid="uid://bfo1axl4fl71m" path="res://images/Room-Perspective.svg" id="2_pxwbd"]
-[ext_resource type="Texture2D" uid="uid://dutwnv61ivhbv" path="res://images/CONTENT-BOX.svg" id="2_svpld"]
 [ext_resource type="Texture2D" uid="uid://ckmwg0bu8e8o2" path="res://images/Action_icon.svg" id="3_1i8jf"]
+[ext_resource type="Texture2D" uid="uid://bo10x6i62i35u" path="res://images/CONTENT-BOX.png" id="3_3oc74"]
 [ext_resource type="Texture2D" uid="uid://dvf8j3mpgflvv" path="res://images/Itens_icon.svg" id="4_svpld"]
 [ext_resource type="Texture2D" uid="uid://cohmqucilo6do" path="res://images/Surrender_icon.svg" id="5_rum4d"]
 [ext_resource type="PackedScene" uid="uid://bcxghbbu6ybxs" path="res://scenes/player_group.tscn" id="6_1i8jf"]
@@ -125,7 +125,7 @@ script = ExtResource("1_g72on")
 
 [node name="Turn_Queue_Manager" type="Node2D" parent="battle_manager"]
 
-[node name="RoomPerspective" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
 position = Vector2(639.5, 214)
 scale = Vector2(0.854015, 0.755172)
 texture = ExtResource("2_pxwbd")
@@ -153,7 +153,7 @@ anchor_bottom = 0.664311
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 0
-texture = ExtResource("2_svpld")
+texture = ExtResource("3_3oc74")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -479,5 +479,6 @@ position = Vector2(195, 290)
 
 [node name="Enemy_Group" parent="." instance=ExtResource("10_g72on")]
 unique_name_in_owner = true
+position = Vector2(950, 260)
 
 [connection signal="pressed" from="UI_Batalha/UIBackground/HBoxContainer/Action_button" to="." method="_on_action_button_pressed"]

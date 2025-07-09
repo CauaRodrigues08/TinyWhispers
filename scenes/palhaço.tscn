@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cj6vxxgwdstqu"]
 
 [ext_resource type="Texture2D" uid="uid://duv0eso5c5e7u" path="res://images/724954_resized.png" id="1_8bvav"]
-[ext_resource type="Script" uid="uid://bhv442vt6u43f" path="res://scenes/palhaço.gd" id="2_6qmru"]
+[ext_resource type="Script" uid="uid://bhv442vt6u43f" path="res://scripts/palhaço.gd" id="2_6qmru"]
 [ext_resource type="Texture2D" uid="uid://b2s5eidpqoref" path="res://images/Clown.png" id="3_8bvav"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8bvav"]

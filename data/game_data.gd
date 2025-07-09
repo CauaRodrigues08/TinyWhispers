@@ -90,7 +90,7 @@ const ENEMIES = [
 	},
 	{
 		"id" : "1003",
-		"name" : "Homem do Saco",
+		"name" : "Homem",
 		"type" : TYPE_ENEMY,
 		"texture" : preload("res://images/sackMan.png"),
 		"max_hp" : 500,
