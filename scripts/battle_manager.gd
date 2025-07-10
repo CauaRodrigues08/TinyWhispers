@@ -21,6 +21,12 @@ extends Node
 @onready var abraço_button: Button = %AbraçoButton
 @onready var abraço_grupo_button: Button = %AbraçoGrupoButton
 
+@onready var heal_container: HBoxContainer = %HealContainer
+@onready var sophia_heal: Button = %SophiaHeal
+@onready var luis_heal: Button = %LuisHeal
+@onready var levi_heal: Button = %LeviHeal
+@onready var pedro_heal: Button = %PedroHeal
+
 @onready var ActionsButton = %Action_button
 @onready var itens_button: Button = %Itens_button
 @onready var surrender_button: Button = %Surrender_button
@@ -66,16 +72,24 @@ func setup_ui():
 	levi_actions.hide()
 	luis_actions.hide()
 	sophia_actions.hide()
+	heal_container.hide()
 
 	ActionsButton.pressed.connect(_on_ActionsButton_pressed)
+	
 	soco_button.pressed.connect(func(): _on_action_button_pressed("Pedro", "2003", "Boss"))
 	careta_button.pressed.connect(func(): _on_action_button_pressed("Pedro", "2004", "Boss"))
 	espada_button.pressed.connect(func(): _on_action_button_pressed("Levi", "2005", "Boss"))
 	ponto_fraco_button.pressed.connect(func(): _on_action_button_pressed("Levi", "2006", "Boss"))
 	arremesso_button.pressed.connect(func(): _on_action_button_pressed("Luis", "2001", "Boss"))
 	arremesso_triplo_button.pressed.connect(func(): _on_action_button_pressed("Luis", "2002", "Boss"))
-	abraço_button.pressed.connect(func(): _on_action_button_pressed("Sophia", "2007", "Pedro")) # Ex: cura Pedro
-	abraço_grupo_button.pressed.connect(func(): _on_action_button_pressed("Sophia", "2008", "")) # Cura em grupo
+	abraço_button.pressed.connect(_on_abraço_button_pressed) 
+	abraço_grupo_button.pressed.connect(func(): _on_action_button_pressed("Sophia", "2008", ""))
+	
+	
+	sophia_heal.pressed.connect(func(): _on_heal_button_pressed("Sophia"))
+	luis_heal.pressed.connect(func(): _on_heal_button_pressed("Luis"))
+	levi_heal.pressed.connect(func(): _on_heal_button_pressed("Levi"))
+	pedro_heal.pressed.connect(func(): _on_heal_button_pressed("Pedro"))
 
 	itens_button.pressed.connect(_on_itens_button_pressed)
 	surrender_button.pressed.connect(_on_surrender_button_pressed)
@@ -197,8 +211,18 @@ func execute_enemy_turn(enemy: Character):
 	
 	if GameData.BUFF_TAUNTED in enemy.status_effects:
 		enemy.status_effects.erase(GameData.BUFF_TAUNTED)
+	
+func _on_heal_button_pressed(target_name: String):
+	apply_action("Sophia", "2007", target_name)
+	heal_container.hide()
+	end_turn()
 
 # INTERFACE DE BATALHA
+
+func _on_abraço_button_pressed():
+	sophia_actions.hide()
+	heal_container.show()
+	update_heal_buttons()
 
 func show_ui_for(character_name: String):
 	
@@ -292,9 +316,19 @@ func update_ui():
 	lifebar_boss.value = b.current_hp
 	boss_nome.text = b.character_name.to_upper()
 	boss_vida_numero.text = "%d/%d" % [b.current_hp, b.max_hp]
+	
+	update_heal_buttons()
 
 func _on_ActionsButton_pressed():
-	ActionsContainer.show()
+	heal_container.hide()
+	hide_all_actions() 
+	show_player_actions(turn_order[current_turn_index])
+
+func update_heal_buttons():
+	sophia_heal.text = "%d/%d" % [characters["Sophia"].current_hp, characters["Sophia"].max_hp]
+	luis_heal.text = "%d/%d" % [characters["Luis"].current_hp, characters["Luis"].max_hp]
+	levi_heal.text = "%d/%d" % [characters["Levi"].current_hp, characters["Levi"].max_hp]
+	pedro_heal.text = "%d/%d" % [characters["Pedro"].current_hp, characters["Pedro"].max_hp]
 	
 
 # OUTROS BOTÕES
