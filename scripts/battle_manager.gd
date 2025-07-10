@@ -131,6 +131,11 @@ func start_turn():
 	var current = characters[current_name]
 	
 	show_ui_for(current_name)
+	
+	if GameData.BUFF_PARALYZED in current.status_effects:
+		current.status_effects.erase(GameData.BUFF_PARALYZED)
+		end_turn()
+		return
 
 	if current.type == GameData.TYPE_PLAYER:
 		show_player_actions(current_name)
@@ -182,10 +187,16 @@ func execute_enemy_turn(enemy: Character):
 	if action_data.target.scope == GameData.TARGET_ALL:
 		targets = ["Pedro", "Levi", "Luis", "Sophia"]
 	else:
-		targets = [turn_order[randi() % 4]] 
+		if GameData.BUFF_TAUNTED in enemy.status_effects:
+			targets = ["Pedro"]
+		else:
+			targets = [turn_order[randi() % 4]] 
 
 	for t in targets:
 		apply_action(enemy.character_name, action_id, t)
+	
+	if GameData.BUFF_TAUNTED in enemy.status_effects:
+		enemy.status_effects.erase(GameData.BUFF_TAUNTED)
 
 # INTERFACE DE BATALHA
 
