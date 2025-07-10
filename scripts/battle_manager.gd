@@ -55,10 +55,14 @@ extends Node
 
 @onready var background: Sprite2D = $"../Background"
 
+@onready var fight_end_container: HBoxContainer = %FightEndContainer
+@onready var next_fight_button: Button = %NextFightButton
+
 var characters = {}
 var turn_order = []
 var current_turn_index = 0
 var enemy_id_to_load: String = BattleData.current_enemy_id
+var fight_ended := false
 
 func _ready():
 	setup_ui()
@@ -141,8 +145,15 @@ func setup_turn_order():
 # SISTEMA DE TURNOS
 
 func start_turn():
+	if fight_ended:
+		return
+	
 	var current_name = turn_order[current_turn_index]
 	var current = characters[current_name]
+	
+	if current.current_hp <= 0:
+		end_turn()
+		return
 	
 	show_ui_for(current_name)
 	
@@ -160,6 +171,8 @@ func start_turn():
 		end_turn()
 
 func end_turn():
+	if fight_ended:
+		return
 	hide_all_actions()
 	current_turn_index = (current_turn_index + 1) % turn_order.size()
 	await get_tree().create_timer(1.0).timeout
@@ -192,30 +205,54 @@ func apply_action(user_name: String, action_id: String, target_name: String):
 			target.status_effects.append(action_data.buff)
 
 	update_ui()
+	
+	if target.current_hp <= 0 and target_name == "Boss":
+		end_fight()
 
 func execute_enemy_turn(enemy: Character):
 	var action_id = enemy.actions[randi() % enemy.actions.size()]
 	var action_data = GameData.ACTIONS.filter(func(a): return a.id == action_id)[0]
 
-	var targets = []
-	if action_data.target.scope == GameData.TARGET_ALL:
-		targets = ["Pedro", "Levi", "Luis", "Sophia"]
-	else:
-		if GameData.BUFF_TAUNTED in enemy.status_effects:
-			targets = ["Pedro"]
+	var targets: Array = []
+
+	if action_data.target.side == GameData.SIDE_PLAYER:
+		
+		if action_data.target.scope == GameData.TARGET_ALL:
+			targets = ["Pedro", "Levi", "Luis", "Sophia"]
 		else:
-			targets = [turn_order[randi() % 4]] 
+			if GameData.BUFF_TAUNTED in enemy.status_effects:
+				targets = ["Pedro"]
+			else:
+				
+				var alive_players = ["Pedro", "Levi", "Luis", "Sophia"].filter(
+					func(p): return characters[p].current_hp > 0
+				)
+				if alive_players.size() > 0:
+					targets = [alive_players[randi() % alive_players.size()]]
+	elif action_data.target.side == GameData.SIDE_ENEMY:
+		# 
+		if action_data.target.scope == GameData.TARGET_ALL:
+			targets = ["Boss"]  # Caso adicionemos mais inimigos
+		else:
+			targets = ["Boss"] 
 
 	for t in targets:
 		apply_action(enemy.character_name, action_id, t)
-	
+
 	if GameData.BUFF_TAUNTED in enemy.status_effects:
 		enemy.status_effects.erase(GameData.BUFF_TAUNTED)
+
 	
 func _on_heal_button_pressed(target_name: String):
 	apply_action("Sophia", "2007", target_name)
 	heal_container.hide()
 	end_turn()
+	
+func end_fight():
+	fight_ended = true
+	hide_all_actions()
+	ActionsContainer.hide()
+	fight_end_container.show()
 
 # INTERFACE DE BATALHA
 
@@ -263,6 +300,11 @@ func show_ui_for(character_name: String):
 			lifebar_boss.show()
 			boss_nome.show()
 			boss_vida_numero.show()
+		
+	if character_name == "Boss" and characters["Boss"].current_hp <= 0:
+		lifebar_boss.hide()
+		boss_nome.hide()
+		boss_vida_numero.hide()
 
 func show_player_actions(character_name: String):
 	hide_all_actions()

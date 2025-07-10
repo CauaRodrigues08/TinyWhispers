@@ -272,7 +272,7 @@ const ACTIONS = [
 		"type" : TYPE_HEAL,
 		"target" : {
 			"side" : SIDE_ENEMY,
-			"scope" : TARGET_SELF
+			"scope" : TARGET_SINGLE
 		},
 		"amount" : 50,
 		"hits" : 1,
