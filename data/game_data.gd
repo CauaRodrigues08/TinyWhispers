@@ -121,6 +121,7 @@ const ACTIONS = [
 		},
 		"amount" : 20,
 		"hits" : 3,
+		"cooldown" : 1
 	},
 	{
 		"id" : "2003",
@@ -143,6 +144,7 @@ const ACTIONS = [
 		},
 		"buff": BUFF_TAUNTED,
 		"amount": 0,
+		"cooldown" : 1
 	},
 	{
 		"id" : "2005",
@@ -165,6 +167,7 @@ const ACTIONS = [
 		},
 		"amount" : 50,
 		"hits" : 1,
+		"cooldown" : 1
 	},
 	{
 		"id" : "2007",

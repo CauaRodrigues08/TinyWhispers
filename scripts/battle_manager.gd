@@ -59,6 +59,13 @@ extends Node
 @onready var next_fight_button: Button = %NextFightButton
 
 var characters = {}
+var action_cooldowns := {
+	"Pedro": {},
+	"Levi": {},
+	"Luis": {},
+	"Sophia": {},
+	"Boss": {}
+}
 var turn_order = []
 var current_turn_index = 0
 var enemy_id_to_load: String = BattleData.current_enemy_id
@@ -155,6 +162,7 @@ func start_turn():
 		return
 	
 	var current_name = turn_order[current_turn_index]
+	reduce_character_cooldowns(current_name)
 	var current = characters[current_name]
 	
 	if current.current_hp <= 0:
@@ -189,10 +197,12 @@ func end_turn():
 func _on_action_button_pressed(user_name: String, action_id: String, target_name: String):
 	if target_name == "":
 		if action_id == "2008": # Abraço em grupo
-			for character in ["Pedro", "Levi", "Luis", "Sophia"]:
+			for character in ["Pedro", "Levi", "Luis"]:
 				apply_action(user_name, action_id, character)
 	else:
 		apply_action(user_name, action_id, target_name)
+		
+	start_cooldown(user_name, action_id)
 	ActionsContainer.hide()
 	end_turn()
 
@@ -276,6 +286,27 @@ func end_fight():
 	hide_all_actions()
 	ActionsContainer.hide()
 	fight_end_container.show()
+	
+func is_on_cooldown(user_name: String, action_id: String) -> bool:
+	return action_cooldowns[user_name].get(action_id, 0) > 0
+	
+func start_cooldown(user_name: String, action_id: String):
+	var action = GameData.ACTIONS.filter(func(a): return a.id == action_id)[0]
+	var cd = action.get("cooldown", 0)
+	if cd > 0:
+		action_cooldowns[user_name][action_id] = cd + 1
+
+func reduce_character_cooldowns(character_name: String):
+	for action_id in action_cooldowns[character_name].keys():
+		action_cooldowns[character_name][action_id] -= 1
+	
+	var filtered = {}
+	for action_id in action_cooldowns[character_name]:
+		var turns_left = action_cooldowns[character_name][action_id]
+		if turns_left > 0:
+			filtered[action_id] = turns_left
+
+	action_cooldowns[character_name] = filtered
 
 # INTERFACE DE BATALHA
 
@@ -345,6 +376,7 @@ func show_player_actions(character_name: String):
 		"Sophia":
 			sophia_actions.show()
 
+	update_action_buttons(character_name)
 	ActionsContainer.show()
 	show_ui_for(character_name)
 
@@ -410,6 +442,24 @@ func update_heal_buttons():
 	pedro_heal.text = "%d/%d" % [characters["Pedro"].current_hp, characters["Pedro"].max_hp]
 	pedro_heal.disabled = pedro.current_hp <= 0
 	
+func update_action_buttons(character_name: String):
+	match character_name:
+		"Pedro":
+			var actions = GameData.CHARACTERS[3]["actions"]
+			soco_button.disabled = is_on_cooldown("Pedro", actions[0])
+			careta_button.disabled = is_on_cooldown("Pedro", actions[1])
+		"Levi":
+			var actions = GameData.CHARACTERS[2]["actions"]
+			espada_button.disabled = is_on_cooldown("Levi", actions[0])
+			ponto_fraco_button.disabled = is_on_cooldown("Levi", actions[1])
+		"Luis":
+			var actions = GameData.CHARACTERS[0]["actions"]
+			arremesso_button.disabled = is_on_cooldown("Luis", actions[0])
+			arremesso_triplo_button.disabled = is_on_cooldown("Luis", actions[1])
+		"Sophia":
+			var actions = GameData.CHARACTERS[1]["actions"]
+			abraço_button.disabled = is_on_cooldown("Sophia", actions[0])
+			abraço_grupo_button.disabled = is_on_cooldown("Sophia", actions[1])
 
 # OUTROS BOTÕES
 # As funções desses botões ainda serão implementadas
