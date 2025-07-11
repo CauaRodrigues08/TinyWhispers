@@ -130,10 +130,6 @@ texture_margin_bottom = 5.0
 [node name="battle_manager" type="Node2D" parent="."]
 script = ExtResource("1_g72on")
 
-[node name="UI_Manager" type="Node2D" parent="battle_manager"]
-
-[node name="Turn_Queue_Manager" type="Node2D" parent="battle_manager"]
-
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(639.5, 214)
 scale = Vector2(0.854015, 0.755172)
@@ -565,3 +561,10 @@ position = Vector2(1000, 220)
 
 [connection signal="pressed" from="UI_Batalha/UIBackground/ContentBox/FightEndContainer/NextFightButton" to="UI_Batalha/UIBackground/ContentBox/FightEndContainer/NextFightButton" method="_on_pressed"]
 [connection signal="pressed" from="UI_Batalha/UIBackground/HBoxContainer/Action_button" to="." method="_on_action_button_pressed"]
+
+[editable path="PlayerGroup"]
+[editable path="PlayerGroup/player_characters/Sophia"]
+[editable path="PlayerGroup/player_characters/Luis"]
+[editable path="PlayerGroup/player_characters/Levi"]
+[editable path="PlayerGroup/player_characters/Pedro"]
+[editable path="Enemy_Group"]

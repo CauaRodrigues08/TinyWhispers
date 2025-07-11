@@ -64,6 +64,12 @@ var current_turn_index = 0
 var enemy_id_to_load: String = BattleData.current_enemy_id
 var fight_ended := false
 
+@onready var sophia_sprite : Sprite2D = $"../PlayerGroup/player_characters/Sophia/Sprite2D"
+@onready var luis_sprite : Sprite2D = $"../PlayerGroup/player_characters/Luis/Sprite2D"
+@onready var levi_sprite : Sprite2D = $"../PlayerGroup/player_characters/Levi/Sprite2D"
+@onready var pedro_sprite : Sprite2D = $"../PlayerGroup/player_characters/Pedro/Sprite2D"
+
+
 func _ready():
 	setup_ui()
 	instantiate_characters()
@@ -190,7 +196,8 @@ func _on_action_button_pressed(user_name: String, action_id: String, target_name
 	ActionsContainer.hide()
 	end_turn()
 
-func apply_action(user_name: String, action_id: String, target_name: String):
+# Nesta função, decidi manter user_name para o caso de, no futuro, as ações tiverem alguma dependência ou condição direta com o usuário
+func apply_action(_user_name: String, action_id: String, target_name: String):
 	var target = characters[target_name]
 	var action_data = GameData.ACTIONS.filter(func(a): return a.id == action_id)[0]
 
@@ -199,15 +206,31 @@ func apply_action(user_name: String, action_id: String, target_name: String):
 			var total = action_data.amount * action_data.hits
 			target.current_hp = max(0, target.current_hp - total)
 		GameData.TYPE_HEAL:
-			var total = action_data.amount
-			target.current_hp = min(target.max_hp, target.current_hp + total)
+			if target.current_hp > 0:
+				var total = action_data.amount
+				target.current_hp = min(target.max_hp, target.current_hp + total)
 		GameData.TYPE_BUFF:
 			target.status_effects.append(action_data.buff)
 
 	update_ui()
 	
-	if target.current_hp <= 0 and target_name == "Boss":
-		end_fight()
+	if target.current_hp <= 0:
+		match target_name:
+			"Pedro":
+				fade_out_sprite(pedro_sprite)
+			"Levi":
+				fade_out_sprite(levi_sprite)
+			"Luis":
+				fade_out_sprite(luis_sprite)
+			"Sophia":
+				fade_out_sprite(sophia_sprite)
+			"Boss":
+				var boss_sprite = enemy_group.get_node("enemy/Sprite")
+				if boss_sprite:
+					fade_out_sprite(boss_sprite)
+				
+		if target_name == "Boss":
+			end_fight()
 
 func execute_enemy_turn(enemy: Character):
 	var action_id = enemy.actions[randi() % enemy.actions.size()]
@@ -255,6 +278,10 @@ func end_fight():
 	fight_end_container.show()
 
 # INTERFACE DE BATALHA
+
+func fade_out_sprite(sprite: Sprite2D):
+	var tween = create_tween()
+	tween.tween_property(sprite, "modulate:a", 0.0, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 
 func _on_abraço_button_pressed():
 	sophia_actions.hide()
@@ -367,10 +394,21 @@ func _on_ActionsButton_pressed():
 	show_player_actions(turn_order[current_turn_index])
 
 func update_heal_buttons():
+	var sophia = characters["Sophia"]
 	sophia_heal.text = "%d/%d" % [characters["Sophia"].current_hp, characters["Sophia"].max_hp]
+	sophia_heal.disabled = sophia.current_hp <= 0
+	
+	var luis = characters["Luis"]
 	luis_heal.text = "%d/%d" % [characters["Luis"].current_hp, characters["Luis"].max_hp]
+	luis_heal.disabled = luis.current_hp <= 0
+	
+	var levi = characters["Levi"]
 	levi_heal.text = "%d/%d" % [characters["Levi"].current_hp, characters["Levi"].max_hp]
+	levi_heal.disabled = levi.current_hp <= 0
+	
+	var pedro = characters["Pedro"]
 	pedro_heal.text = "%d/%d" % [characters["Pedro"].current_hp, characters["Pedro"].max_hp]
+	pedro_heal.disabled = pedro.current_hp <= 0
 	
 
 # OUTROS BOTÕES
