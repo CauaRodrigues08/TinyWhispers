@@ -359,7 +359,7 @@ theme_override_constants/separation = 100
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 
-[node name="RemédioButton" type="Button" parent="UI_Batalha/UIBackground/ContentBox/ItensContainer"]
+[node name="RemedioButton" type="Button" parent="UI_Batalha/UIBackground/ContentBox/ItensContainer"]
 custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 
