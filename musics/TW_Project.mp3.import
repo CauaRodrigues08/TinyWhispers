@@ -12,7 +12,11 @@ dest_files=["res://.godot/imported/TW_Project.mp3-7629b965324a34213a367260f00c83
 
 [params]
 
+<<<<<<< HEAD
 loop=true
+=======
+loop=false
+>>>>>>> 76720a5913271bea6017a5cdbe2b4766c62e58f3
 loop_offset=0
 bpm=0
 beat_count=0
