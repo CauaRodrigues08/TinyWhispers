@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TinyWhispers"
-run/main_scene="uid://wqkhahbgbyai"
+run/main_scene="uid://bub5ym3ct2oil"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 "Transição"="*res://scenes/transição.tscn"
 "Transiçãomenu"="*res://scenes/transiçãomenu.tscn"
+GameData="*res://data/game_data.gd"
+BattleData="*res://scripts/battle_data.gd"
 
 [display]
 

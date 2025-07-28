@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccollfsb50xew"]
+
+[ext_resource type="Texture2D" uid="uid://duv0eso5c5e7u" path="res://images/724954_resized.png" id="1_ne01g"]
+[ext_resource type="Texture2D" uid="uid://dvu4gscdi4uem" path="res://images/pirate.png" id="2_cv0wk"]
+
+[node name="CenaPirataM" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1281.0
+offset_bottom = 720.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(629, 449)
+rotation = 1.5708
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("2_cv0wk")
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 747.0
+offset_top = 569.0
+offset_right = 930.0
+offset_bottom = 862.0
+rotation = 1.5708
+scale = Vector2(0.8, 0.8)
+icon = ExtResource("1_ne01g")

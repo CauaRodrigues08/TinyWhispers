@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhbk80752h3sx"]
+
+[ext_resource type="Texture2D" uid="uid://dvu4gscdi4uem" path="res://images/pirate.png" id="1_rxfdc"]
+
+[node name="pirata_inimigo" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_rxfdc")
