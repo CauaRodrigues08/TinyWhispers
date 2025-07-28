@@ -341,6 +341,32 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_ti0og")
 text = "PRÓXIMA BATALHA"
 script = ExtResource("9_bg0yk")
 
+[node name="ItensContainer" type="HBoxContainer" parent="UI_Batalha/UIBackground/ContentBox"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 18.0
+offset_right = -13.9991
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="JujubasButton" type="Button" parent="UI_Batalha/UIBackground/ContentBox/ItensContainer"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+
+[node name="RemédioButton" type="Button" parent="UI_Batalha/UIBackground/ContentBox/ItensContainer"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+
+[node name="PedrinhaButton" type="Button" parent="UI_Batalha/UIBackground/ContentBox/ItensContainer"]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+
 [node name="lifebar_Pedro" type="TextureProgressBar" parent="UI_Batalha/UIBackground"]
 unique_name_in_owner = true
 layout_mode = 0
