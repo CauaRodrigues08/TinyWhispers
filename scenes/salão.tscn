@@ -26,7 +26,7 @@
 [ext_resource type="Script" uid="uid://c7nk5sa6xctm7" path="res://scripts/cubo_m_texto.gd" id="25_8l2dd"]
 [ext_resource type="Script" uid="uid://dy6h7yn2vcc5t" path="res://scripts/desenho_3.gd" id="25_cpgp5"]
 [ext_resource type="Script" uid="uid://cceua7wkanup1" path="res://scripts/cubo_m.gd" id="26_v3l2x"]
-[ext_resource type="AudioStream" uid="uid://dd3rpsrafnpw" path="res://musics/TW_Project.mp3" id="27_65ack"]
+[ext_resource type="AudioStream" uid="uid://jhmq6xykodcf" path="res://musics/TW_Project.mp3" id="27_65ack"]
 
 [node name="Salão" type="Node2D"]
 

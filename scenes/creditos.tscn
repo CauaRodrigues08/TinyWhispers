@@ -1,13 +1,239 @@
-[gd_scene format=3 uid="uid://637q6idrvqcs"]
+[gd_scene load_steps=4 format=3 uid="uid://637q6idrvqcs"]
+
+[ext_resource type="FontFile" uid="uid://c38sc5ot4frjv" path="res://fonts/Mistral Regular.ttf" id="1_spoww"]
+[ext_resource type="Script" uid="uid://rxxyxhwpullb" path="res://scenes/voltar_pmenu.gd" id="2_6yhot"]
+[ext_resource type="AudioStream" uid="uid://ddlrlibsmon65" path="res://musics/At_Very_Last_When_It_Ends.mp3" id="3_jddgq"]
 
 [node name="Creditos" type="Node2D"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Sprite2D" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+offset_right = 1280.0
+offset_bottom = 720.0
 color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+
+[node name="Label" type="Label" parent="Control/Sprite2D"]
+offset_left = 478.0
+offset_top = 17.0
+offset_right = 799.0
+offset_bottom = 118.0
+theme_override_fonts/font = ExtResource("1_spoww")
+theme_override_font_sizes/font_size = 100
+text = "CRÉDITOS"
+
+[node name="Artistas" type="Label" parent="Control/Sprite2D"]
+offset_left = 69.0
+offset_top = 180.0
+offset_right = 395.0
+offset_bottom = 241.0
+theme_override_fonts/font = ExtResource("1_spoww")
+theme_override_font_sizes/font_size = 60
+text = "ARTES E MÚSICA"
+
+[node name="Artista1" type="Label" parent="Control/Sprite2D/Artistas"]
+layout_mode = 0
+offset_left = 52.0
+offset_top = 64.0
+offset_right = 268.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(0.739789, 1.93726e-06, 9.62615e-07, 1)
+theme_override_fonts/font = ExtResource("1_spoww")
+theme_override_font_sizes/font_size = 30
+text = "Saul Ramos Magalhães"
+
+[node name="Artista2" type="Label" parent="Control/Sprite2D/Artistas"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 100.0
+offset_right = 272.0
+offset_bottom = 131.0
+theme_override_colors/font_color = Color(0.739789, 1.93726e-06, 9.62615e-07, 1)
+theme_override_fonts/font = ExtResource("1_spoww")
+theme_override_font_sizes/font_size = 30
+text = "Isaac Ramos Magalhães"
+
+[node name="Programadores" type="Label" parent="Control/Sprite2D"]
+offset_left = 48.0
+offset_top = 355.0
+offset_right = 415.0
+offset_bottom = 416.0
+theme_override_fonts/font = ExtResource("1_spoww")
+theme_override_font_sizes/font_size = 60
+text = "PROGRAMADORES"
+
+[node name="Programador1" type="Label" parent="Control/Sprite2D/Programadores"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 64.0
+offset_right = 348.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(0.739789, 1.93726e-06, 9.62615e-07, 1)
+theme_override_fonts/font = ExtResource("1_spoww")
+theme_override_font_sizes/font_size = 30
+text = "Cauã Rodrigues da Cunha Barros"
+
+[node name="Programador2" type="Label" parent="Control/Sprite2D/Programadores"]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 100.0
+offset_right = 292.0
+offset_bottom = 131.0
+theme_override_colors/font_color = Color(0.739789, 1.93726e-06, 9.62615e-07, 1)
+theme_override_fonts/font = ExtResource("1_spoww")
+theme_override_font_sizes/font_size = 30
+text = "Isaac Ramos Magalhães"
+
+[node name="FrontEnd" type="Label" parent="Control/Sprite2D"]
+offset_left = 534.0
+offset_top = 181.0
+offset_right = 753.0
+offset_bottom = 242.0
+theme_override_fonts/font = ExtResource("1_spoww")
+theme_override_font_sizes/font_size = 60
+text = "FRONTEND"
+
+[node name="FE1" type="Label" parent="Control/Sprite2D/FrontEnd"]
+layout_mode = 0
+offset_left = -49.0
+offset_top = 64.0
+offset_right = 272.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(0.739789, 1.93726e-06, 9.62615e-07, 1)
+theme_override_fonts/font = ExtResource("1_spoww")
+theme_override_font_sizes/font_size = 30
+text = "Cauã Rodrigues da Cunha Barros"
+
+[node name="Programador3" type="Label" parent="Control/Sprite2D/FrontEnd"]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 104.0
+offset_right = 223.0
+offset_bottom = 135.0
+theme_override_colors/font_color = Color(0.739789, 1.93726e-06, 9.62615e-07, 1)
+theme_override_fonts/font = ExtResource("1_spoww")
+theme_override_font_sizes/font_size = 30
+text = "Arthur Lima dos Santos"
+
+[node name="Design e Documentação" type="Label" parent="Control/Sprite2D"]
+offset_left = 474.0
+offset_top = 336.0
+offset_right = 817.0
+offset_bottom = 461.0
+theme_override_fonts/font = ExtResource("1_spoww")
+theme_override_font_sizes/font_size = 60
+text = "DOCS/DESIGNS E
+FIGMA"
+horizontal_alignment = 1
+
+[node name="D&D" type="Label" parent="Control/Sprite2D/Design e Documentação"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 125.0
+offset_right = 336.0
+offset_bottom = 156.0
+theme_override_colors/font_color = Color(0.739789, 1.93726e-06, 9.62615e-07, 1)
+theme_override_fonts/font = ExtResource("1_spoww")
+theme_override_font_sizes/font_size = 30
+text = "Ana Beatriz Carvalho de Menezes"
+
+[node name="Processo Criativo" type="Label" parent="Control/Sprite2D"]
+offset_left = 837.0
+offset_top = 221.0
+offset_right = 1247.0
+offset_bottom = 282.0
+theme_override_fonts/font = ExtResource("1_spoww")
+theme_override_font_sizes/font_size = 60
+text = "PROCESSO CRIATIVO"
+
+[node name="PC1" type="Label" parent="Control/Sprite2D/Processo Criativo"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 65.0
+offset_right = 314.0
+offset_bottom = 96.0
+theme_override_colors/font_color = Color(0.739789, 1.93726e-06, 9.62615e-07, 1)
+theme_override_fonts/font = ExtResource("1_spoww")
+theme_override_font_sizes/font_size = 30
+text = "Saul Ramos Magalhães"
+
+[node name="PC2" type="Label" parent="Control/Sprite2D/Processo Criativo"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 101.0
+offset_right = 369.0
+offset_bottom = 132.0
+theme_override_colors/font_color = Color(0.739789, 1.93726e-06, 9.62615e-07, 1)
+theme_override_fonts/font = ExtResource("1_spoww")
+theme_override_font_sizes/font_size = 30
+text = "Ana Beatriz Carvalho de Menezes"
+
+[node name="PC3" type="Label" parent="Control/Sprite2D/Processo Criativo"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 139.0
+offset_right = 369.0
+offset_bottom = 170.0
+theme_override_colors/font_color = Color(0.739789, 1.93726e-06, 9.62615e-07, 1)
+theme_override_fonts/font = ExtResource("1_spoww")
+theme_override_font_sizes/font_size = 30
+text = "Cauã Rodrigues da Cunha Barros"
+
+[node name="PC4" type="Label" parent="Control/Sprite2D/Processo Criativo"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 174.0
+offset_right = 320.0
+offset_bottom = 205.0
+theme_override_colors/font_color = Color(0.739789, 1.93726e-06, 9.62615e-07, 1)
+theme_override_fonts/font = ExtResource("1_spoww")
+theme_override_font_sizes/font_size = 30
+text = "Isaac Ramos Magalhães"
+
+[node name="PC5" type="Label" parent="Control/Sprite2D/Processo Criativo"]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 208.0
+offset_right = 326.0
+offset_bottom = 239.0
+theme_override_colors/font_color = Color(0.739789, 1.93726e-06, 9.62615e-07, 1)
+theme_override_fonts/font = ExtResource("1_spoww")
+theme_override_font_sizes/font_size = 30
+text = "Arthur Lima dos Santos"
+
+[node name="VoltarPmenu" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 388.0
+offset_top = 538.0
+offset_right = 905.0
+offset_bottom = 641.0
+theme_override_colors/font_hover_pressed_color = Color(0.599057, 1.43189e-06, 4.33177e-07, 1)
+theme_override_colors/font_hover_color = Color(0.612299, 1.50409e-06, 5.77569e-07, 1)
+theme_override_fonts/font = ExtResource("1_spoww")
+theme_override_font_sizes/font_size = 80
+text = "MENU PRINCIPAL"
+script = ExtResource("2_6yhot")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 527.0
+offset_top = 663.0
+offset_right = 769.0
+offset_bottom = 694.0
+theme_override_fonts/font = ExtResource("1_spoww")
+theme_override_font_sizes/font_size = 30
+text = "OBRIGADO POR JOGAR!"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_jddgq")
+autoplay = true
+
+[connection signal="pressed" from="Control/VoltarPmenu" to="Control/VoltarPmenu" method="_on_pressed"]

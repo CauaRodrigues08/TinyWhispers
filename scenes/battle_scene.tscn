@@ -1,10 +1,11 @@
-[gd_scene load_steps=40 format=3 uid="uid://dlax6jrwv6qyg"]
+[gd_scene load_steps=42 format=3 uid="uid://dlax6jrwv6qyg"]
 
 [ext_resource type="Script" uid="uid://dj85rbew7y016" path="res://scripts/battle_manager.gd" id="1_g72on"]
 [ext_resource type="FontFile" uid="uid://c38sc5ot4frjv" path="res://fonts/Mistral Regular.ttf" id="1_pxwbd"]
 [ext_resource type="Texture2D" uid="uid://bfo1axl4fl71m" path="res://images/Room-Perspective.svg" id="2_pxwbd"]
 [ext_resource type="Texture2D" uid="uid://ckmwg0bu8e8o2" path="res://images/Action_icon.svg" id="3_1i8jf"]
 [ext_resource type="Texture2D" uid="uid://bo10x6i62i35u" path="res://images/CONTENT-BOX.png" id="3_3oc74"]
+[ext_resource type="Script" uid="uid://clwapvsmr5kv7" path="res://scenes/BattleMusic.gd" id="4_3xrod"]
 [ext_resource type="Texture2D" uid="uid://dvf8j3mpgflvv" path="res://images/Itens_icon.svg" id="4_svpld"]
 [ext_resource type="Texture2D" uid="uid://cohmqucilo6do" path="res://images/Surrender_icon.svg" id="5_rum4d"]
 [ext_resource type="Texture2D" uid="uid://c5vul2voe8rmb" path="res://Imagens/Sofia.png" id="5_ti0og"]
@@ -14,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dvqyixqs7ahi" path="res://Imagens/Pedro.png" id="8_3xrod"]
 [ext_resource type="Script" uid="uid://c4tifmnnegyd4" path="res://scripts/next_fight_button.gd" id="9_bg0yk"]
 [ext_resource type="PackedScene" uid="uid://cuvpq3y7pgksm" path="res://scenes/enemy_group.tscn" id="10_g72on"]
+[ext_resource type="AudioStream" uid="uid://dv86ijifjducq" path="res://musics/Tiny_Squad_Against_the_Horrors.mp3" id="15_yt3ua"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_svpld"]
 
@@ -584,6 +586,13 @@ position = Vector2(195, 290)
 [node name="Enemy_Group" parent="." instance=ExtResource("10_g72on")]
 unique_name_in_owner = true
 position = Vector2(1000, 220)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(6.10352e-05, 0)
+scale = Vector2(1, 1)
+stream = ExtResource("15_yt3ua")
+autoplay = true
+script = ExtResource("4_3xrod")
 
 [connection signal="pressed" from="UI_Batalha/UIBackground/ContentBox/FightEndContainer/NextFightButton" to="UI_Batalha/UIBackground/ContentBox/FightEndContainer/NextFightButton" method="_on_pressed"]
 [connection signal="pressed" from="UI_Batalha/UIBackground/HBoxContainer/Action_button" to="." method="_on_action_button_pressed"]
