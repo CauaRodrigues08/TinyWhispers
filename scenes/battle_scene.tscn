@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dlax6jrwv6qyg"]
+[gd_scene load_steps=50 format=3 uid="uid://dlax6jrwv6qyg"]
 
 [ext_resource type="Script" uid="uid://dj85rbew7y016" path="res://scripts/battle_manager.gd" id="1_g72on"]
 [ext_resource type="FontFile" uid="uid://c38sc5ot4frjv" path="res://fonts/Mistral Regular.ttf" id="1_pxwbd"]
@@ -7,14 +7,22 @@
 [ext_resource type="Texture2D" uid="uid://bo10x6i62i35u" path="res://images/CONTENT-BOX.png" id="3_3oc74"]
 [ext_resource type="Script" uid="uid://clwapvsmr5kv7" path="res://scenes/BattleMusic.gd" id="4_3xrod"]
 [ext_resource type="Texture2D" uid="uid://dvf8j3mpgflvv" path="res://images/Itens_icon.svg" id="4_svpld"]
+[ext_resource type="Texture2D" uid="uid://cqnxvkwd2y1si" path="res://images/Soco.png" id="5_g6hvt"]
 [ext_resource type="Texture2D" uid="uid://cohmqucilo6do" path="res://images/Surrender_icon.svg" id="5_rum4d"]
 [ext_resource type="Texture2D" uid="uid://c5vul2voe8rmb" path="res://Imagens/Sofia.png" id="5_ti0og"]
 [ext_resource type="PackedScene" uid="uid://bcxghbbu6ybxs" path="res://scenes/player_group.tscn" id="6_1i8jf"]
 [ext_resource type="Texture2D" uid="uid://b3sov5npp60os" path="res://Imagens/Luis.png" id="6_bg0yk"]
+[ext_resource type="Texture2D" uid="uid://bga1jwv6tat1s" path="res://images/Careta.png" id="6_y8gcu"]
+[ext_resource type="Texture2D" uid="uid://htxoihw5yifr" path="res://images/GolpeDeEspada.png" id="7_31luo"]
 [ext_resource type="Texture2D" uid="uid://c2yauj1ieqcn7" path="res://Imagens/Levi.png" id="7_yt3ua"]
 [ext_resource type="Texture2D" uid="uid://dvqyixqs7ahi" path="res://Imagens/Pedro.png" id="8_3xrod"]
+[ext_resource type="Texture2D" uid="uid://j3l17lqbx4ld" path="res://images/PontoFraco.png" id="8_dm2tv"]
+[ext_resource type="Texture2D" uid="uid://rv5p6w05ew14" path="res://images/Arremesso.png" id="9_16mmc"]
 [ext_resource type="Script" uid="uid://c4tifmnnegyd4" path="res://scripts/next_fight_button.gd" id="9_bg0yk"]
+[ext_resource type="Texture2D" uid="uid://ofwlmtgpg8rm" path="res://images/ArremessoTriplo.png" id="10_fg2lh"]
 [ext_resource type="PackedScene" uid="uid://cuvpq3y7pgksm" path="res://scenes/enemy_group.tscn" id="10_g72on"]
+[ext_resource type="Texture2D" uid="uid://cdujebelkd47p" path="res://images/Abraço.png" id="11_tr5ov"]
+[ext_resource type="Texture2D" uid="uid://c84l0ag718rso" path="res://images/AbraçoGrupo.png" id="12_c6fjk"]
 [ext_resource type="AudioStream" uid="uid://dv86ijifjducq" path="res://musics/Tiny_Squad_Against_the_Horrors.mp3" id="15_yt3ua"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_svpld"]
@@ -192,6 +200,7 @@ theme_override_fonts/font = ExtResource("1_pxwbd")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxTexture_svpld")
 text = "SOCO"
+icon = ExtResource("5_g6hvt")
 
 [node name="CaretaButton" type="Button" parent="UI_Batalha/UIBackground/ContentBox/ActionsContainer/PedroActions"]
 unique_name_in_owner = true
@@ -201,6 +210,7 @@ theme_override_fonts/font = ExtResource("1_pxwbd")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxTexture_rum4d")
 text = "CARETA"
+icon = ExtResource("6_y8gcu")
 
 [node name="LeviActions" type="HBoxContainer" parent="UI_Batalha/UIBackground/ContentBox/ActionsContainer"]
 unique_name_in_owner = true
@@ -216,6 +226,7 @@ theme_override_fonts/font = ExtResource("1_pxwbd")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxTexture_svpld")
 text = "GOLPE"
+icon = ExtResource("7_31luo")
 
 [node name="PontoFracoButton" type="Button" parent="UI_Batalha/UIBackground/ContentBox/ActionsContainer/LeviActions"]
 unique_name_in_owner = true
@@ -225,6 +236,7 @@ theme_override_fonts/font = ExtResource("1_pxwbd")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxTexture_rum4d")
 text = "PONTO FRACO"
+icon = ExtResource("8_dm2tv")
 
 [node name="LuisActions" type="HBoxContainer" parent="UI_Batalha/UIBackground/ContentBox/ActionsContainer"]
 unique_name_in_owner = true
@@ -240,6 +252,7 @@ theme_override_fonts/font = ExtResource("1_pxwbd")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxTexture_svpld")
 text = "ARREMESSO"
+icon = ExtResource("9_16mmc")
 
 [node name="ArremessoTriploButton" type="Button" parent="UI_Batalha/UIBackground/ContentBox/ActionsContainer/LuisActions"]
 unique_name_in_owner = true
@@ -249,6 +262,7 @@ theme_override_fonts/font = ExtResource("1_pxwbd")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxTexture_rum4d")
 text = "ARREMESSO TRIPLO"
+icon = ExtResource("10_fg2lh")
 
 [node name="SophiaActions" type="HBoxContainer" parent="UI_Batalha/UIBackground/ContentBox/ActionsContainer"]
 unique_name_in_owner = true
@@ -264,6 +278,7 @@ theme_override_fonts/font = ExtResource("1_pxwbd")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxTexture_svpld")
 text = "ABRAÇO"
+icon = ExtResource("11_tr5ov")
 
 [node name="AbraçoGrupoButton" type="Button" parent="UI_Batalha/UIBackground/ContentBox/ActionsContainer/SophiaActions"]
 unique_name_in_owner = true
@@ -273,6 +288,7 @@ theme_override_fonts/font = ExtResource("1_pxwbd")
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxTexture_rum4d")
 text = "ABRAÇO EM GRUPO"
+icon = ExtResource("12_c6fjk")
 
 [node name="HealContainer" type="HBoxContainer" parent="UI_Batalha/UIBackground/ContentBox/ActionsContainer"]
 unique_name_in_owner = true
@@ -589,7 +605,6 @@ position = Vector2(1000, 220)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(6.10352e-05, 0)
-scale = Vector2(1, 1)
 stream = ExtResource("15_yt3ua")
 autoplay = true
 script = ExtResource("4_3xrod")
