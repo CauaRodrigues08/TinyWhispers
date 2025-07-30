@@ -1,8 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://wqkhahbgbyai"]
+[gd_scene load_steps=30 format=3 uid="uid://wqkhahbgbyai"]
 
 [ext_resource type="Texture2D" uid="uid://bq5kyiapaul8h" path="res://images/salaoTiny.png" id="1_ax71t"]
 [ext_resource type="Texture2D" uid="uid://duv0eso5c5e7u" path="res://images/724954_resized.png" id="2_1nuwv"]
 [ext_resource type="Script" uid="uid://viei65cpl4ha" path="res://scripts/descricoes.gd" id="2_v3l2x"]
+[ext_resource type="FontFile" uid="uid://c38sc5ot4frjv" path="res://fonts/Mistral Regular.ttf" id="5_1ae6d"]
 [ext_resource type="Script" uid="uid://bhd8on1ytt1wa" path="res://scripts/sala_pirata.gd" id="5_n7ojm"]
 [ext_resource type="Script" uid="uid://coeafvmu1cqny" path="res://scripts/bola.gd" id="6_elxrc"]
 [ext_resource type="Script" uid="uid://bwsgbveseqms8" path="res://scripts/letrinhas_texto.gd" id="6_l8v38"]
@@ -26,7 +27,8 @@
 [ext_resource type="Script" uid="uid://c7nk5sa6xctm7" path="res://scripts/cubo_m_texto.gd" id="25_8l2dd"]
 [ext_resource type="Script" uid="uid://dy6h7yn2vcc5t" path="res://scripts/desenho_3.gd" id="25_cpgp5"]
 [ext_resource type="Script" uid="uid://cceua7wkanup1" path="res://scripts/cubo_m.gd" id="26_v3l2x"]
-[ext_resource type="AudioStream" uid="uid://jhmq6xykodcf" path="res://musics/TW_Project.mp3" id="27_65ack"]
+[ext_resource type="Script" uid="uid://dgmnkubee0n3t" path="res://scenes/salaoMusic.gd" id="28_cpgp5"]
+[ext_resource type="AudioStream" uid="uid://b5p6cf70afvt8" path="res://musics/The_Ashes_Of_The_Unspoken_mp_3.tres" id="28_vjsja"]
 
 [node name="Salão" type="Node2D"]
 
@@ -54,6 +56,17 @@ rotation = 1.5708
 scale = Vector2(0.75, 0.75)
 icon = ExtResource("2_1nuwv")
 script = ExtResource("5_n7ojm")
+
+[node name="Label" type="Label" parent="botões/Sala_Pirata"]
+layout_mode = 0
+offset_left = 69.334
+offset_top = 188.0
+offset_right = 128.334
+offset_bottom = 239.0
+rotation = -1.57079
+theme_override_fonts/font = ExtResource("5_1ae6d")
+theme_override_font_sizes/font_size = 50
+text = "???"
 
 [node name="Letrinhas" type="Node2D" parent="botões"]
 
@@ -254,8 +267,9 @@ offset_bottom = 328.0
 script = ExtResource("26_v3l2x")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("27_65ack")
+stream = ExtResource("28_vjsja")
 volume_db = 10.0
 autoplay = true
+script = ExtResource("28_cpgp5")
 
 [connection signal="pressed" from="botões/Sala_Pirata" to="botões/Sala_Pirata" method="_on_pressed"]
